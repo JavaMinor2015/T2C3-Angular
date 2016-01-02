@@ -1,6 +1,8 @@
-/node_modules
-/dist
-
+.sass-cache
+node_modules/
+bower_components/
+dist/
+.tmp/
 
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
@@ -49,7 +51,3 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
-
-/.tmp
-/.sass-cache
-/bower_components

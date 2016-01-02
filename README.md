@@ -5,6 +5,8 @@ version 0.14.0.
 
 ## Build & development
 
+Goto the `webapp\` directory.
+Run `npm install` and `bower install` to install all dependencies.
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
