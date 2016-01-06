@@ -4,18 +4,17 @@
 <form name="orderForm">
   <label>First name</label>
   <br>
-  <input type="text" name="firstname" required ng-model="order.firstName">
+  <input type="text" name="firstname" required ng-model="userInfo.firstName">
   <br>
   <label>Last name</label>
   <br>
-  <input type="text" name="lastname" required ng-model="order.lastName">
+  <input type="text" name="lastname" required ng-model="userInfo.lastName">
   <br>
   <label>Email</label>
   <br>
-  <input type="text" name="email" ng-model="order.email">
+  <input type="text" name="email" ng-model="userInfo.emailAddress">
   <br>
   <br>
-  <span>{{order.firstName}}</span>
   <button type="button" ng-click="placeOrder()">Place order</button>
 </form>
 </div>

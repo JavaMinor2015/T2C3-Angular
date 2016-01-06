@@ -11,6 +11,8 @@ angular.module('t2C3AngularApp')
   .controller('OrderCtrl', ['$scope', function ($scope) {
     $scope.placeOrder = function () {
       console.log('clicked order');
-      console.log(this.order);
+      console.log(this.userInfo);
+      // Pass userInfo object to orderService
+
     }
   }]);
