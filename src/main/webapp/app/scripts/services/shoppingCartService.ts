@@ -1,16 +1,14 @@
 /// <reference path="../app.ts" />
-
 'use strict';
 
 module t2C3AngularApp {
   export class ShoppingCartService {
-    awesomeThings:any[] = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    public getWelcomeMessage():String {
+      var hello = 'hello';
+      return hello;
+    }
   }
-}
 
-angular.module('t2C3AngularApp')
-  .service('shoppingCartService', t2C3AngularApp.ShoppingCartService);
+
+  angular.module('t2C3AngularApp.services', []).service('ShoppingCartService')
+}

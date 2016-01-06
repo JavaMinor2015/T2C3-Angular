@@ -15,7 +15,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'catalogResource'
+    'catalogResource',
+    't2C3AngularApp.services'
 ])
     .config(function ($routeProvider) {
     $routeProvider
@@ -53,4 +54,5 @@ angular
         redirectTo: '/'
     });
 });
+//angular.module('t2C3AngularApp.services', []);
 //# sourceMappingURL=app.js.map

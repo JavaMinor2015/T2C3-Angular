@@ -8,6 +8,8 @@
  *
  * Main module of the application.
  */
+
+
 angular
   .module('t2C3AngularApp', [
     'ngAnimate',
@@ -16,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'catalogResource'
+    'catalogResource',
+    't2C3AngularApp.services'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -53,4 +56,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+//angular.module('t2C3AngularApp.services', []);
