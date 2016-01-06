@@ -1,9 +1,11 @@
 .sass-cache
-node_modules/
-bower_components/
-dist/
+
+/src/main/webapp/node_modules
+
+
 .tmp/
 target-grunt/
+target/
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
 
@@ -15,6 +17,7 @@ target-grunt/
 
 # User-specific stuff:
 # .idea/workspace.xml
+/src/main/webapp/.tmp
 # .idea/tasks.xml
 # .idea/dictionaries
 
