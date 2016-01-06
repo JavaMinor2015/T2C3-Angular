@@ -33,6 +33,11 @@ angular
         controller: 'ShoppingCartCtrl',
         controllerAs: 'shoppingCart'
     })
+        .when('/orderCreate', {
+        templateUrl: 'views/orderCreate.html',
+        controller: 'OrderCtrl',
+        controllerAs: 'order'
+    })
         .otherwise({
         redirectTo: '/'
     });
