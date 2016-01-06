@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name t2C3AngularApp.controller:MainCtrl

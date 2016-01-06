@@ -8,10 +8,6 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('AboutCtrl', ['ShoppingCartService', function (ShoppingCartService) {
+    this.awesomeThings = ShoppingCartService.awesomeThings;
+  }]);

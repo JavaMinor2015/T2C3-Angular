@@ -1,5 +1,5 @@
 <h2>Shopping Cart</h2>
-<div ng:controller="ShoppingCartCtrl">
+<div ng-controller="ShoppingCartCtrl">
   <table class="table">
     <tr>
 
@@ -9,13 +9,13 @@
       <th>Subtotal</th>
       <th></th>
     </tr>
-    <tr ng:repeat="item in invoice.items">
+    <tr ng-repeat="item in cart.items">
       <td>{{item.description}}</td>
       <td>{{item.cost | currency:"&euro;"}}</td>
-      <td><input type="number" ng:model="item.quantity" ng:required class="input-mini"></td>
+      <td><input type="number" ng-model="item.quantity" ng-required class="input-mini"></td>
       <td>{{item.quantity * item.cost | currency:"&euro;"}}</td>
       <td>
-        [<a href ng:click="removeItem($index)">X</a>]
+        [<a href ng-click="removeItem($index)">X</a>]
       </td>
     </tr>
   </table>
