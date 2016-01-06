@@ -8,37 +8,35 @@
  */
 
 angular.module('t2C3AngularApp')
-  .controller('ShoppingCartCtrl', function ($scope) {
+  .controller('ShoppingCartCtrl', ['$scope', function ($scope) {
 
-    function ShoppingCartForm($scope) {
-      $scope.invoice = {
+      $scope.cart = {
         items: [{
           qty: 10,
           description: 'item',
-          cost: 9.95}]
+          cost: 10.00}]
       };
 
       $scope.addItem = function() {
-        $scope.invoice.items.push({
+        $scope.cart.items.push({
           qty: 1,
           description: '',
           cost: 0
         });
-      },
+      };
 
         $scope.removeItem = function(index) {
-          $scope.invoice.items.splice(index, 1);
-        },
+          $scope.cart.items.splice(index, 1);
+        };
 
         $scope.total = function() {
           var total = 0;
-          angular.forEach($scope.invoice.items, function(item) {
+          angular.forEach($scope.cart.items, function(item) {
             total += item.qty * item.cost;
           })
 
           return total;
-        }
-    }
-  });
+        };
+  }]);
 
 
