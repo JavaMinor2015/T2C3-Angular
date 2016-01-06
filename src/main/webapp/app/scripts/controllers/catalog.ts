@@ -26,4 +26,3 @@ angular.module('t2C3AngularApp')
     ];
 
   }]);
-//# sourceMappingURL=catalog.jss.map
