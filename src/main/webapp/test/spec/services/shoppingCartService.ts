@@ -12,8 +12,8 @@ describe('Service: shoppingCartService', () => {
     shoppingCartService = _shoppingCartService_;
   }));
 
-  it('should do something', () => {
-    expect(!!shoppingCartService).toBe(true);
-  });
+  //it('should do something', () => {
+  //  expect(!!shoppingCartService).toBe(true);
+  //});
 
 });
