@@ -1,5 +1,6 @@
 .sass-cache
 node_modules/
+/src/main/webapp/node_modules
 bower_components/
 dist/
 .tmp/
@@ -16,6 +17,7 @@ target/
 
 # User-specific stuff:
 # .idea/workspace.xml
+/src/main/webapp/.tmp
 # .idea/tasks.xml
 # .idea/dictionaries
 
