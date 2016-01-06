@@ -15,7 +15,7 @@ angular.module('t2C3AngularApp')
             {
                 'name': 'Fietsbel',
                 'price': 10,
-                'category': 'Diverse',
+                'category': 'Diverse'
             },
             {
                 'name': 'Lamp',
