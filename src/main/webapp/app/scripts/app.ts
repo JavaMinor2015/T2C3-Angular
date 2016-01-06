@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'catalogResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -23,6 +24,11 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
+      })
+      .when('/catalog', {
+        templateUrl: 'views/catalog.html',
+        controller: 'CatalogCtrl',
+        controllerAs: 'catalog'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
