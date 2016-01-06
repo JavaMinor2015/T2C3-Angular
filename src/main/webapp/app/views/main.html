@@ -20,4 +20,21 @@
 
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>E-mail address</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="contact in contacts">
+      <td>{{contact.firstName}} {{contact.surname}}</td>
+      <td>{{contact.email}}</td>
+      <td>
+        <button class="btn">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+
 </div>
