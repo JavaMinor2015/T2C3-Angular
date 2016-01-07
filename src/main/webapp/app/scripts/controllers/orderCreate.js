@@ -10,7 +10,7 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-    .controller('OrderCtrl', ['$scope', 'orderService', 'UserInfo', function ($scope, orderService, UserInfo) {
+    .controller('OrderCtrl', ['$scope', 'orderService', 'orderResource', function ($scope, orderService, orderResource, UserInfo) {
         $scope.placeOrder = function () {
             console.log('clicked order');
             // Unfortunately no direct binding and have type safety in angular 1.x + typescript
@@ -21,6 +21,9 @@ angular.module('t2C3AngularApp')
             userInfo.setEmailAddress(this.emailAddress);
             // Pass userInfo object to orderService
             orderService.placeOrder(userInfo);
+            orderResource.save(orderService.order);
+            console.log('hij is niet fout gegaan');
+            orderService.clearOrder();
         };
     }]);
 //# sourceMappingURL=orderCreate.js.map

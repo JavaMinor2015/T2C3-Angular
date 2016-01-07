@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'catalogResource'
+    'catalogResource',
+    'orderResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider
