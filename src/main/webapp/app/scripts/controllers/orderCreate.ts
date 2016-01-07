@@ -10,7 +10,7 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', 'UserInfo', '$location','orderResource', function ($scope, orderService, UserInfo, $location, orderResource) {
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location','orderResource', function ($scope, orderService, $location, orderResource) {
     $scope.placeOrder = function () {
       console.log('clicked order');
 
