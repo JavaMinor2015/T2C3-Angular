@@ -1,0 +1,22 @@
+<div ng:controller="OrderCtrl">
+<h4>Order form</h4>
+<br>
+<form name="orderForm">
+  <label>First name</label>
+  <br>
+  <input type="text" name="firstname" required ng-model="firstName"
+         ng-model-options="{ getterSetter: true }">
+  <br>
+  <label>Last name</label>
+  <br>
+  <input type="text" name="lastname" required ng-model="lastName">
+  <br>
+  <label>Email</label>
+  <br>
+  <input type="text" name="email" ng-model="emailAddress">
+  <br>
+  <br>
+  <!--<span>{{firstName}}</span>-->
+  <button type="button" ng-click="placeOrder()">Place order</button>
+</form>
+</div>

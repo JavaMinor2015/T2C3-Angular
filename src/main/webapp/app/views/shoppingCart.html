@@ -1,0 +1,24 @@
+<h2>Shopping Cart</h2>
+<div ng-controller="ShoppingCartCtrl">
+  <table class="table">
+    <tr>
+
+      <th>Description</th>
+      <th>Cost</th>
+      <th>Amount</th>
+      <th>Subtotal</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="item in shoppingCart">
+      <td>{{item.product.name}}</td>
+      <td>{{item.product.price | currency:"&euro;"}}</td>
+      <td><input type="number" ng-model="item.amount" ng-required class="input-mini" value="1"></td>
+      <td>{{item.amount * item.product.price | currency:"&euro;"}}</td>
+      <td>
+        [<a href ng-click="removeItem($index)">X</a>]
+      </td>
+    </tr>
+  </table>
+  <p align="right">Total: {{total() | currency:"&euro;"}}</p>
+  <p align="right"><button ng-click="placeOrder()">Order</button> </p>
+</div>
