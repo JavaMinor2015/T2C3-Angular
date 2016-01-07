@@ -2,18 +2,19 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/order.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
+/// <reference path="../resources/orderResource.ts"/>
 
 'use strict';
 module t2C3AngularApp {
   export class Orderservice {
-    private order: t2C3AngularApp.Order = new t2C3AngularApp.Order(); // Current order object
+    private _order: t2C3AngularApp.Order = new t2C3AngularApp.Order(); // Current order object
 
     /**
      * Sets cartItems for current order.
      * @param _cartItems
      */
     public setCartItems(cartItems:Array<any>) {
-      this.order.setCartItems(cartItems);
+      this._order.setCartItems(cartItems);
     }
 
     /**
@@ -22,7 +23,7 @@ module t2C3AngularApp {
      */
     private setUserInfo(userInfo) {
       // Todo: Possible checks like if any cartItems exist in shoppingcart before placing an order
-      this.order.setUserInfo(userInfo);
+      this._order.setUserInfo(userInfo);
     }
 
     /**
@@ -32,25 +33,30 @@ module t2C3AngularApp {
       console.log('OrderNow executed');
       console.log(userInfo);
       // If userInfo is not empty
-      if(userInfo === new t2C3AngularApp.UserInfo()){
-        this.order.setUserInfo(userInfo);
-      }
+
+        this._order.setUserInfo(userInfo);
+
 
       // Todo: Send order object to server to create an order over REST post
 
       // Cleanup this order because it was already sent to server
-      this.clearOrder();
+
     }
 
     /**
      * Reset this order to empty
      */
-    private clearOrder() {
-      this.order.setUserInfo(null);
-      this.order.setCartItems([]);
+    public clearOrder() {
+      this._order.setUserInfo(null);
+      this._order.setCartItems([]);
     }
+
+    get order():t2C3AngularApp.Order{
+          return this._order;
+          }
   }
 }
 
 angular.module('t2C3AngularApp')
   .service('orderService', t2C3AngularApp.Orderservice);
+

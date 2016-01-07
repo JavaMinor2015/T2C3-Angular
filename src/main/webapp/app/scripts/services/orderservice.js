@@ -2,19 +2,20 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/order.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
+/// <reference path="../resources/orderResource.ts"/>
 'use strict';
 var t2C3AngularApp;
 (function (t2C3AngularApp) {
     var Orderservice = (function () {
         function Orderservice() {
-            this.order = new t2C3AngularApp.Order(); // Current order object
+            this._order = new t2C3AngularApp.Order(); // Current order object
         }
         /**
          * Sets cartItems for current order.
          * @param _cartItems
          */
         Orderservice.prototype.setCartItems = function (cartItems) {
-            this.order.setCartItems(cartItems);
+            this._order.setCartItems(cartItems);
         };
         /**
          * Sets user info for order and sends order to server if any cartItems exist.
@@ -22,7 +23,7 @@ var t2C3AngularApp;
          */
         Orderservice.prototype.setUserInfo = function (userInfo) {
             // Todo: Possible checks like if any cartItems exist in shoppingcart before placing an order
-            this.order.setUserInfo(userInfo);
+            this._order.setUserInfo(userInfo);
         };
         /**
          * Send the order to the server
@@ -31,20 +32,24 @@ var t2C3AngularApp;
             console.log('OrderNow executed');
             console.log(userInfo);
             // If userInfo is not empty
-            if (userInfo === new t2C3AngularApp.UserInfo()) {
-                this.order.setUserInfo(userInfo);
-            }
+            this._order.setUserInfo(userInfo);
             // Todo: Send order object to server to create an order over REST post
             // Cleanup this order because it was already sent to server
-            this.clearOrder();
         };
         /**
          * Reset this order to empty
          */
         Orderservice.prototype.clearOrder = function () {
-            this.order.setUserInfo(null);
-            this.order.setCartItems([]);
+            this._order.setUserInfo(null);
+            this._order.setCartItems([]);
         };
+        Object.defineProperty(Orderservice.prototype, "order", {
+            get: function () {
+                return this._order;
+            },
+            enumerable: true,
+            configurable: true
+        });
         return Orderservice;
     })();
     t2C3AngularApp.Orderservice = Orderservice;

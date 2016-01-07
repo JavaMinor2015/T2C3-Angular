@@ -10,7 +10,7 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', 'UserInfo', '$location', function ($scope, orderService, UserInfo, $location) {
+  .controller('OrderCtrl', ['$scope', 'orderService', 'UserInfo', '$location','orderResource', function ($scope, orderService, UserInfo, $location, orderResource) {
     $scope.placeOrder = function () {
       console.log('clicked order');
 
@@ -23,6 +23,9 @@ angular.module('t2C3AngularApp')
 
       // Pass userInfo object to orderService
       orderService.placeOrder(userInfo);
+      orderResource.save(orderService.order);
+      console.log('hij is niet fout gegaan');
+      orderService.clearOrder();
 
       // Navigate to thank you page
       $location.path('/thanksOrder');

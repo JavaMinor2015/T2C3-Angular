@@ -1,6 +1,7 @@
 // Dependencies declared here so TypeScript does not nag
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/userInfo.ts"/>
+/// <reference path="../pojos/cartItem.ts"/>
 'use strict';
 /**
  * Order object to be sent to server.
