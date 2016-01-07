@@ -9,7 +9,7 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', 'UserInfo', function ($scope, orderService, UserInfo) {
+  .controller('OrderCtrl', ['$scope', 'orderService', 'UserInfo', '$location', function ($scope, orderService, UserInfo, $location) {
     $scope.placeOrder = function () {
       console.log('clicked order');
 
@@ -22,5 +22,8 @@ angular.module('t2C3AngularApp')
 
       // Pass userInfo object to orderService
       orderService.placeOrder(userInfo);
+
+      // Navigate to thank you page
+      $location.path('/thanksOrder');
     }
   }]);

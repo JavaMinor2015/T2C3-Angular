@@ -49,6 +49,9 @@ angular
         controller: 'OrderCtrl',
         controllerAs: 'order'
     })
+        .when('/thanksOrder', {
+        templateUrl: 'views/thanksOrder.html'
+    })
         .otherwise({
         redirectTo: '/'
     });

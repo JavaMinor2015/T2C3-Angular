@@ -14,14 +14,24 @@ angular.module('t2C3AngularApp')
     // Temp hardcoded
     $scope.products = [
       {
-        'name':'Fietsbel',
-        'price':10,
-        'category':'Diverse',
+        id: 1,
+        version: 0,
+        name: 'Thing #113693836',
+        price: 0.61,
+        category: 'PART',
+        supplier: 'Meme',
+        available: true,
+        imageURL: null
       },
       {
-        'name':'Lamp',
-        'price':10,
-        'category':'Lamp'
+        id: 2,
+        version: 0,
+        name: 'Thing #21425211',
+        price: 1.20,
+        category: 'PART',
+        supplier: 'Meme',
+        available: true,
+        imageURL: null
       }
     ];
 

@@ -50,6 +50,12 @@ angular
         controller: 'OrderCtrl',
         controllerAs: 'order'
       })
+      .when('/thanksOrder', {
+        templateUrl: 'views/thanksOrder.html'
+        //,
+        //controller: 'OrderCtrl',
+        //controllerAs: 'order'
+      })
       .otherwise({
         redirectTo: '/'
       });
