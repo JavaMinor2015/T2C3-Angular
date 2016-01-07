@@ -12,10 +12,10 @@ var t2C3AngularApp;
         function Order() {
         }
         Order.prototype.setUserInfo = function (userInfo) {
-            this.userInfo = userInfo;
+            this.customerData = userInfo;
         };
         Order.prototype.setCartItems = function (cartItems) {
-            this.cartItems = cartItems;
+            this.items = cartItems;
         };
         return Order;
     })();

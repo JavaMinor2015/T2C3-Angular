@@ -8,15 +8,15 @@
  */
 module t2C3AngularApp{
   export class Order{
-    private userInfo : UserInfo;
-    private cartItems : Array<CartItem>;
+    private customerData : UserInfo;
+    private items : Array<CartItem>;
 
     public setUserInfo(userInfo : UserInfo){
-      this.userInfo = userInfo;
+      this.customerData = userInfo;
     }
 
     public setCartItems(cartItems : Array<CartItem>){
-      this.cartItems = cartItems;
+      this.items = cartItems;
     }
   }
 }

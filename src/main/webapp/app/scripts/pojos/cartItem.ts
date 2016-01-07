@@ -11,7 +11,7 @@ module t2C3AngularApp{
   export class CartItem{
     private product : Product;
     private quantity : number;
-
+    private price : number;
     public setProduct(product : Product){
       this.product = product;
     }
