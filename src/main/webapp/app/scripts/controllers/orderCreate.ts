@@ -1,5 +1,6 @@
 /// <reference path="../app.ts" />
-/// <reference path="../pojos/Order.ts"/>
+/// <reference path="../pojos/order.ts"/>
+/// <reference path="../pojos/userInfo.ts"/>
 'use strict';
 /**
  * @ngdoc function
@@ -15,7 +16,7 @@ angular.module('t2C3AngularApp')
 
       // Unfortunately no direct binding and have type safety in angular 1.x + typescript
       // without rewriting this as a typescript controller with all troubles it comes with.
-      var userInfo : t2C3AngularApp.UserInfo = UserInfo.getNewInstance();
+      var userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo();
       userInfo.setFirstName(this.firstName);
       userInfo.setLastName(this.lastName);
       userInfo.setEmailAddress(this.emailAddress);

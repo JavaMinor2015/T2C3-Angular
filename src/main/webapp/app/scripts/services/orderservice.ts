@@ -1,6 +1,7 @@
 // Dependencies declared here so TypeScript does not nag
 /// <reference path="../app.ts" />
-/// <reference path="../pojos/Order.ts"/>
+/// <reference path="../pojos/order.ts"/>
+/// <reference path="../pojos/userInfo.ts"/>
 
 'use strict';
 module t2C3AngularApp {
