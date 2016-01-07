@@ -22,4 +22,4 @@ var t2C3AngularApp;
 })(t2C3AngularApp || (t2C3AngularApp = {}));
 //angular.module('myApp', [])
 //  .service('Order', t2C3AngularApp.Order)
-//# sourceMappingURL=Order.js.map
+//# sourceMappingURL=order.js.map
