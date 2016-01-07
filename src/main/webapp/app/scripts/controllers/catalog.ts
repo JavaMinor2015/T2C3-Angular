@@ -13,7 +13,6 @@ angular.module('t2C3AngularApp')
     $scope.addToCart = function(product) {
       var productOfCartItem = shoppingCartService.getProductByProductID(product.id);
       if(productOfCartItem) {
-        console.log("HALLLO");
         shoppingCartService.increaseQuantityByProductId(productOfCartItem.id);
       }
       else {
