@@ -15,8 +15,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'catalogResource',
-    't2C3AngularApp.services'
+    'catalogResource'
 ])
     .config(function ($routeProvider) {
     $routeProvider
