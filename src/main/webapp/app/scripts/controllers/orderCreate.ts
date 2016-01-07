@@ -24,8 +24,10 @@ angular.module('t2C3AngularApp')
       // Pass userInfo object to orderService
       orderService.placeOrder(userInfo);
       orderResource.save(orderService.order);
-      console.log('hij is niet fout gegaan');
+      console.log(orderService.order);
       orderService.clearOrder();
+      console.log(orderService.order);
+
 
       // Navigate to thank you page
       $location.path('/thanksOrder');
