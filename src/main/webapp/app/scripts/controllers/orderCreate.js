@@ -15,7 +15,7 @@ angular.module('t2C3AngularApp')
             console.log('clicked order');
             // Unfortunately no direct binding and have type safety in angular 1.x + typescript
             // without rewriting this as a typescript controller with all troubles it comes with.
-            var userInfo = new t2C3AngularApp.UserInfo();
+            var userInfo = new t2C3AngularApp.UserInfo(); // jshint ignore:line
             userInfo.setFirstName(this.firstName);
             userInfo.setLastName(this.lastName);
             userInfo.setEmailAddress(this.emailAddress);
