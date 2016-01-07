@@ -1,4 +1,4 @@
-<table class="table">
+<table ng-controller="CatalogCtrl" class="table">
   <th>Name</th>
   <th>Category</th>
   <th>Supplier</th>
@@ -14,6 +14,6 @@
     <td>{{ x.available }}</td>
     <td>{{ x.imageURL }}</td>
     <td>{{ x.price | currency:"&euro;"}}</td>
-    <td><button class="btn">Add</button></td>
+    <td><button class="btn" ng-click="addToCart(x)">Add</button></td>
   </tr>
 </table>
