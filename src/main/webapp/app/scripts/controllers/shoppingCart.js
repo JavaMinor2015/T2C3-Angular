@@ -7,7 +7,7 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-    .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', function ($scope, shoppingCartService) {
+    .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', 'orderService', '$location', function ($scope, shoppingCartService, orderService, $location) {
         $scope.shoppingCart = shoppingCartService.getCart();
         $scope.removeItem = function (item) {
             shoppingCartService.removeItem(item);
@@ -19,6 +19,10 @@ angular.module('t2C3AngularApp')
                 total += item.amount * item.product.price;
             });
             return total;
+        };
+        $scope.placeOrder = function () {
+            orderService.setCartItems(this.shoppingCart);
+            $location.path('/orderCreate');
         };
     }]);
 //# sourceMappingURL=shoppingCart.js.map

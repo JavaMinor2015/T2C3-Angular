@@ -37,6 +37,6 @@ var t2C3AngularApp;
  * Made this class as a service so it can be used inside an Angular v1 objects like a controller.
  * And be able to get a new object of this class by calling the getNewInstance() function.
  */
-angular.module('t2C3AngularApp')
-    .service('UserInfo', t2C3AngularApp.UserInfo);
+//angular.module('t2C3AngularApp')
+//  .service('UserInfo', t2C3AngularApp.UserInfo);
 //# sourceMappingURL=userInfo.js.map

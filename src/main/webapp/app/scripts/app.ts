@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'catalogResource'
+    'catalogResource',
+    'orderResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -51,6 +52,12 @@ angular
         templateUrl: 'views/orderCreate.html',
         controller: 'OrderCtrl',
         controllerAs: 'order'
+      })
+      .when('/thanksOrder', {
+        templateUrl: 'views/thanksOrder.html'
+        //,
+        //controller: 'OrderCtrl',
+        //controllerAs: 'order'
       })
       .otherwise({
         redirectTo: '/'

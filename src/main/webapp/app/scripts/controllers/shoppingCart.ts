@@ -8,7 +8,7 @@
  */
 
 angular.module('t2C3AngularApp')
-  .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', function ($scope, shoppingCartService) {
+  .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', 'orderService', '$location', function ($scope, shoppingCartService, orderService, $location) {
 
       $scope.shoppingCart = shoppingCartService.getCart();
       $scope.removeItem = function(item) {
@@ -24,6 +24,11 @@ angular.module('t2C3AngularApp')
 
         return total;
       };
+
+    $scope.placeOrder = function(){
+      orderService.setCartItems(this.shoppingCart);
+      $location.path('/orderCreate');
+    };
   }]);
 
 
