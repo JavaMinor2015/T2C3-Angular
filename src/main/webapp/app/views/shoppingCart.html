@@ -5,15 +5,15 @@
 
       <th>Description</th>
       <th>Cost</th>
-      <th>Quantity</th>
+      <th>Amount</th>
       <th>Subtotal</th>
       <th></th>
     </tr>
-    <tr ng-repeat="item in cart.items">
-      <td>{{item.description}}</td>
-      <td>{{item.cost | currency:"&euro;"}}</td>
-      <td><input type="number" ng-model="item.quantity" ng-required class="input-mini"></td>
-      <td>{{item.quantity * item.cost | currency:"&euro;"}}</td>
+    <tr ng-repeat="item in shoppingCart">
+      <td>{{item.product.name}}</td>
+      <td>{{item.product.price | currency:"&euro;"}}</td>
+      <td><input type="number" ng-model="item.amount" ng-required class="input-mini" value="1"></td>
+      <td>{{item.amount * item.product.price | currency:"&euro;"}}</td>
       <td>
         [<a href ng-click="removeItem($index)">X</a>]
       </td>

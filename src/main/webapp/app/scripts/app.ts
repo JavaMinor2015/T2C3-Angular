@@ -8,6 +8,8 @@
  *
  * Main module of the application.
  */
+
+
 angular
   .module('t2C3AngularApp', [
     'ngAnimate',
@@ -59,4 +61,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+//angular.module('t2C3AngularApp.services', []);

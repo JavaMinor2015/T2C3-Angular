@@ -56,4 +56,5 @@ angular
         redirectTo: '/'
     });
 });
+//angular.module('t2C3AngularApp.services', []);
 //# sourceMappingURL=app.js.map

@@ -7,31 +7,18 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-    .controller('CatalogCtrl', ['$scope', 'catalogResource', function ($scope, catalogResource) {
+    .controller('CatalogCtrl', ['$scope', 'catalogResource', 'shoppingCartService', function ($scope, catalogResource, shoppingCartService) {
         $scope.products = catalogResource.query();
-        console.log($scope.products);
-        // Temp hardcoded
-        $scope.products = [
-            {
-                id: 1,
-                version: 0,
-                name: 'Thing #113693836',
-                price: 0.61,
-                category: 'PART',
-                supplier: 'Meme',
-                available: true,
-                imageURL: null
-            },
-            {
-                id: 2,
-                version: 0,
-                name: 'Thing #21425211',
-                price: 1.20,
-                category: 'PART',
-                supplier: 'Meme',
-                available: true,
-                imageURL: null
+        $scope.addToCart = function (product) {
+            var productOfCartItem = shoppingCartService.getProductByProductID(product.id);
+            if (productOfCartItem) {
+                shoppingCartService.increaseQuantityByProductId(productOfCartItem.id);
             }
-        ];
+            else {
+                var item = { amount: 1, product: product };
+                shoppingCartService.addItem(item);
+            }
+            //item.product = product;
+        };
     }]);
 //# sourceMappingURL=catalog.js.map
