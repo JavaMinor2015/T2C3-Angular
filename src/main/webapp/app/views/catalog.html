@@ -14,8 +14,6 @@
     <td>{{ x.available }}</td>
     <td>{{ x.imageURL }}</td>
     <td>{{ x.price | currency:"&euro;"}}</td>
-    <td>
-      <button class="btn" ng-click="addToCart(x)">Add</button>
-    </td>
+    <td><button class="btn" ng-click="addToCart(x)">Add</button></td>
   </tr>
 </table>

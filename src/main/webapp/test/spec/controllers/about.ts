@@ -1,9 +1,9 @@
-/// <reference path="../../../app/scripts/app.ts" />
+'use strict';
 
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(angular.mock.module('t2C3AngularApp'));
+  beforeEach(module('t2C3AngularApp'));
 
   var AboutCtrl,
     scope;

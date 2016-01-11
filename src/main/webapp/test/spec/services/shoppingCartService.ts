@@ -4,7 +4,7 @@
 describe('Service: shoppingCartService', () => {
 
   // load the service's module
-  beforeEach(angular.mock.module('t2C3AngularApp'));
+  beforeEach(module('t2C3AngularApp'));
 
   // instantiate service
   var shoppingCartService;
@@ -15,4 +15,5 @@ describe('Service: shoppingCartService', () => {
   //it('should do something', () => {
   //  expect(!!shoppingCartService).toBe(true);
   //});
+
 });

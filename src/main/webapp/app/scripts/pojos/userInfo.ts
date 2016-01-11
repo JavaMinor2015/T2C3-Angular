@@ -3,41 +3,41 @@
  * Order object interface to be implemented and sent to server.
  */
 module t2C3AngularApp {
-  export class UserInfo {
-    private firstName : String;
-    private lastName : String;
-    private emailAddress : String;
+  export class UserInfo{
+    public constructor(){
 
-    //public constructor() {
-    //
-    //}
+    }
 
-    public getNewInstance() : UserInfo {
+    public getNewInstance(): UserInfo{
       return new UserInfo();
     }
 
-    public setFirstName(firstName : String) {
+    private firstName:String;
+    private lastName:String;
+    private emailAddress:String;
+
+    public setFirstName(firstName : String){
       this.firstName = firstName;
       console.log('FIRST NAME SET');
     }
 
-    public getFirstName() {
+    public getFirstName(){
       return this.firstName;
     }
 
-    public setLastName(lastName : String) {
+    public setLastName(lastName : String){
       this.lastName = lastName;
     }
 
-    public getLastName() {
+    public getLastName(){
       return this.lastName;
     }
 
-    public setEmailAddress(emailAddress : String) {
+    public setEmailAddress(emailAddress : String){
       this.emailAddress = emailAddress;
     }
 
-    public getEmailAddress() {
+    public getEmailAddress(){
       return this.emailAddress;
     }
   }

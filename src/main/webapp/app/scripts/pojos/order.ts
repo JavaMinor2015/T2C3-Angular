@@ -6,16 +6,16 @@
 /**
  * Order object to be sent to server.
  */
-module t2C3AngularApp {
-  export class Order {
+module t2C3AngularApp{
+  export class Order{
     private customerData : UserInfo;
     private items : Array<CartItem>;
 
-    public setUserInfo(userInfo : UserInfo) {
+    public setUserInfo(userInfo : UserInfo){
       this.customerData = userInfo;
     }
 
-    public setCartItems(cartItems : Array<CartItem>) {
+    public setCartItems(cartItems : Array<CartItem>){
       this.items = cartItems;
     }
   }
