@@ -28,6 +28,36 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    ts: {
+      default: {
+        src: ["**/*.ts", "!node_modules/**/*.ts","!app/scripts/typings/**/*.ts"]
+      },
+      options: {
+        sourceMap: true,
+        target: 'es5'
+      }
+    },
+
+    tslint: {
+
+      options: {
+
+        configuration: "tslint.json"
+
+      },
+
+      files: {
+
+        src: [
+
+          './app/scripts/{,*/}*.ts'
+
+        ]
+
+      }
+    },
+
+
     // Project settings
     yeoman: appConfig,
 
@@ -202,23 +232,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       }
     },
 
@@ -449,10 +479,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'tslint',
+    'ts',
     'wiredep',
     'concurrent:test',
     'postcss',
-    'connect:test'
+    'connect:test',
+    'karma'
   ]);
 
   grunt.registerTask('build', [
@@ -474,9 +507,12 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'newer:jscs',
+
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks("grunt-ts");
+
+  grunt.loadNpmTasks("grunt-tslint");
 };
