@@ -7,19 +7,21 @@
 /**
  * cartItem object to be stored in order
  */
-module t2C3AngularApp{
-  export class CartItem{
+module t2C3AngularApp {
+  export class CartItem {
     private product : Product;
     private quantity : number;
-    private price : number;
-    public setProduct(product : Product){
+    //private price : number;
+
+    public setProduct(product : Product) {
       this.product = product;
     }
 
-    public increaseQuantity(){
+    public increaseQuantity() {
       this.quantity++;
     }
-    public decreaseQuantity(){
+
+    public decreaseQuantity() {
       this.quantity--;
     }
   }

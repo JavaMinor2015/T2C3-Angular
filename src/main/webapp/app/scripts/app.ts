@@ -1,4 +1,8 @@
-'use strict';
+/// <reference path="typings/angularjs/angular.d.ts" />
+/// <reference path="typings/angularjs/angular-mocks.d.ts" />
+/// <reference path="typings/karma/karma.d.ts" />
+/// <reference path="typings/jasmine/jasmine.d.ts" />
+/// <reference path="typings/jasmine/jasmine-tests.ts" />
 
 /**
  * @ngdoc overview
@@ -8,7 +12,6 @@
  *
  * Main module of the application.
  */
-
 
 angular
   .module('t2C3AngularApp', [
@@ -62,6 +65,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  })
+  });
 
 //angular.module('t2C3AngularApp.services', []);

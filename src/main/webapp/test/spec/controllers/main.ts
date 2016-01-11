@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('t2C3AngularApp'));
+  beforeEach(angular.mock.module('t2C3AngularApp'));
 
   var MainCtrl,
     scope;

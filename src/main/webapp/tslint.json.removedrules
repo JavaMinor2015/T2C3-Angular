@@ -1,0 +1,9 @@
+"comment-format": [true, "check-space"],
+"quotemark": [true, "double", "avoid-escape"],
+"object-literal-sort-keys": true,
+
+"typedef-whitespace": [true, {
+      "variable-declaration": "nospace",
+      "property-declaration": "nospace",
+      "parameter": "nospace"
+    }],

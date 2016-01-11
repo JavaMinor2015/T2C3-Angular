@@ -10,16 +10,14 @@ angular.module('t2C3AngularApp')
   .controller('CatalogCtrl', ['$scope', 'catalogResource', 'shoppingCartService', function ($scope, catalogResource, shoppingCartService) {
     $scope.products = catalogResource.query();
 
-    $scope.addToCart = function(product) {
-      var productOfCartItem = shoppingCartService.getProductByProductID(product.id);
-      if(productOfCartItem) {
+    $scope.addToCart = function (product) {
+      let productOfCartItem = shoppingCartService.getProductByProductID(product.id);
+      if (productOfCartItem) {
         shoppingCartService.increaseQuantityByProductId(productOfCartItem.id);
-      }
-      else {
-        var item = { amount: 1, product: product };
+      } else {
+        let item = {amount: 1, product: product};
         shoppingCartService.addItem(item);
       }
       //item.product = product;
     };
-
   }]);

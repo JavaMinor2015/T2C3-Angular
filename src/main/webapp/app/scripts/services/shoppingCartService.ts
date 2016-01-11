@@ -5,7 +5,7 @@ module t2C3AngularApp {
   export class ShoppingCartService {
 
     private cart = [];
-    private cartItem;
+    //private cartItem;
 
     public getCart() {
       return this.cart;
@@ -20,8 +20,8 @@ module t2C3AngularApp {
     }
 
     public getProductByProductID(id) {
-      for (var i=0; i < this.cart.length; i++) {
-        if(this.cart[i].product.id === id) {
+      for (let i = 0; i < this.cart.length; i++) {
+        if (this.cart[i].product.id === id) {
           return this.cart[i].product;
         }
       }
@@ -29,8 +29,8 @@ module t2C3AngularApp {
     }
 
     public increaseQuantityByProductId(id) {
-      for (var i=0; i < this.cart.length; i++) {
-        if(this.cart[i].product.id === id) {
+      for (let i = 0; i < this.cart.length; i++) {
+        if (this.cart[i].product.id === id) {
           this.cart[i].amount = this.cart[i].amount + 1;
         }
       }
