@@ -1,3 +1,4 @@
+/// <reference path="address.ts" />
 'use strict';
 /**
  * Order object interface to be implemented and sent to server.
@@ -14,6 +15,9 @@ module t2C3AngularApp {
 
     private firstName:String;
     private lastName:String;
+
+    private address:Address;
+
     private emailAddress:String;
 
     public setFirstName(firstName : String){
@@ -31,6 +35,17 @@ module t2C3AngularApp {
 
     public getLastName(){
       return this.lastName;
+    }
+
+    public setAddress(address : Address) {
+      console.log(Address);
+      console.log(address);
+      this.address = address;
+      console.log(this.address);
+    }
+
+    public getAddress() {
+      return this.address;
     }
 
     public setEmailAddress(emailAddress : String){
