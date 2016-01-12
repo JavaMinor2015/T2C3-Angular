@@ -1,0 +1,38 @@
+<div ng:controller="RegisterCtrl">
+  <h4>Order form</h4>
+  <br>
+
+  <form name="orderForm">
+    <label>username</label>
+    <input type="text" name="username" required ng-model="username">
+    <br>
+    <label>password</label>
+    <input type="text" name="password" required ng-model="password">
+    <br>
+    <label>First name</label>
+    <input type="text" name="firstName" required ng-model="firstName">
+    <br>
+    <label>Last name</label>
+    <input type="text" name="lastName" required ng-model="lastName">
+    <br>
+    <label>Email</label>
+    <input type="text" name="email" ng-model="emailAddress">
+    <br>
+    <label>straat naam</label>
+    <input type="text" name="street" ng-model="street">
+    <br>
+    <label>straat nummer</label>
+    <input type="text" name="streetNumber" ng-model="streetNumber">
+    <br>
+    <label>stad</label>
+    <input type="text" name="city" ng-model="city">
+    <br>
+    <label>Postcode</label>
+    <input type="text" name="zipcode" ng-model="zipcode">
+    <br>
+    <!--<span>{{firstName}}</span>-->
+    <button type="button" ng-click="registerCustomer()">Register!</button>
+  </form>
+</div>
+
+

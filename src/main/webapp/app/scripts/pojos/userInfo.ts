@@ -8,7 +8,7 @@ module t2C3AngularApp {
     private firstName : String;
     private lastName : String;
     private emailAddress : String;
-    private address: t2C3AngularApp.Address;
+    private address : t2C3AngularApp.Address;
 
     public setFirstName(firstName : String) {
       this.firstName = firstName;
@@ -28,10 +28,8 @@ module t2C3AngularApp {
     }
 
     public setAddress(address : Address) {
-      console.log(Address);
-      console.log(address);
       this.address = address;
-      console.log(this.address);
+
     }
 
     public getAddress() {
@@ -46,5 +44,7 @@ module t2C3AngularApp {
     public getEmailAddress() {
       return this.emailAddress;
     }
+
+
   }
 }

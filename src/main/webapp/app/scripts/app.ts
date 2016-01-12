@@ -1,4 +1,3 @@
-
 /// <reference path="typings/angularjs/angular.d.ts" />
 /**
  * @ngdoc overview
@@ -58,6 +57,11 @@ angular
         //,
         //controller: 'OrderCtrl',
         //controllerAs: 'order'
+      })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'register'
       })
       .otherwise({
         redirectTo: '/'
