@@ -3,8 +3,8 @@
 /src/main/webapp/node_modules
 /src/main/webapp/app/scripts/**/*.js
 /src/main/webapp/app/scripts/**/*.js.map
-/src/main/webapp/app/scripts/*.js
-/src/main/webapp/app/scripts/*.js.map
+/src/main/webapp/test/spec/**/*.js
+/src/main/webapp/test/spec/**/*.js.map
 
 .tmp/
 target-grunt/
