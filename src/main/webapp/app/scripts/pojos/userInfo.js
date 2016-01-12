@@ -1,3 +1,4 @@
+/// <reference path="address.ts" />
 'use strict';
 /**
  * Order object interface to be implemented and sent to server.
@@ -22,6 +23,15 @@ var t2C3AngularApp;
         };
         UserInfo.prototype.getLastName = function () {
             return this.lastName;
+        };
+        UserInfo.prototype.setAddress = function (address) {
+            console.log(t2C3AngularApp.Address);
+            console.log(address);
+            this.address = address;
+            console.log(this.address);
+        };
+        UserInfo.prototype.getAddress = function () {
+            return this.address;
         };
         UserInfo.prototype.setEmailAddress = function (emailAddress) {
             this.emailAddress = emailAddress;

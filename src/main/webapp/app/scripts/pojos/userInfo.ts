@@ -3,16 +3,11 @@
  * Order object interface to be implemented and sent to server.
  */
 module t2C3AngularApp {
-  export class UserInfo {
-    private firstName : String;
-    private lastName : String;
-    private emailAddress : String;
+  export class UserInfo{
 
-    public getNewInstance() : UserInfo {
-      return new UserInfo();
-    }
-
-
+    private firstName:String;
+    private lastName:String;
+    private emailAddress:String;
 
     public setFirstName(firstName : String) {
       this.firstName = firstName;
@@ -31,6 +26,18 @@ module t2C3AngularApp {
       return this.lastName;
     }
 
+    public setAddress(address : Address) {
+      console.log(Address);
+      console.log(address);
+      this.address = address;
+      console.log(this.address);
+    }
+
+    public getAddress() {
+      return this.address;
+    }
+
+
     public setEmailAddress(emailAddress : String) {
       this.emailAddress = emailAddress;
     }
@@ -40,10 +47,3 @@ module t2C3AngularApp {
     }
   }
 }
-
-/**
- * Made this class as a service so it can be used inside an Angular v1 objects like a controller.
- * And be able to get a new object of this class by calling the getNewInstance() function.
- */
-//angular.module('t2C3AngularApp')
-//  .service('UserInfo', t2C3AngularApp.UserInfo);
