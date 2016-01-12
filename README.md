@@ -11,7 +11,7 @@ Run `grunt` for building and `grunt serve` for preview.
 
 ## Build only
 
-Running maven install should build a temporary `target-grunt` folder.
+Running maven install should build a temporary `target-grunt` folder wich can be hosted using `grunt serve`.
 
 ## Testing
 
