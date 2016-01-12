@@ -20,10 +20,10 @@ describe('Controller: CatalogCtrl', function () {
   }));
 
   var product1 = {
-    id: 1, version: 0, name: "Thing #192072553", price: 0.12, category: "PART"
+    id: 1, name : "ThisOne"
   }
   var product2 = {
-    id: 2, version: 0, name: "ThisOne", price: 0.12, category: "PART"
+    id: 2, name : "OtherOne"
   }
 
   it('should add cart items to the shoppingcart', function () {
@@ -31,7 +31,7 @@ describe('Controller: CatalogCtrl', function () {
     scope.addToCart(product2);
     var product = mockShoppingCartService.getProductByProductID(2);
     expect(product.id).toBe(2);
-    expect(product.name).toBe("ThisOne");
+    expect(product.name).toBe("OtherOne");
   });
 
   it('should add increased amount for existing cart items in the shoppingcart', function () {

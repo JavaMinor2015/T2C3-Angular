@@ -21,9 +21,9 @@ angular.module('t2C3AngularApp')
       let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo(); // jshint ignore:line
       let address : t2C3AngularApp.Address  = new t2C3AngularApp.Address; // jshint ignore:line
 
+      // Sets all field information in the local objects
       userInfo.setFirstName(this.firstName);
       userInfo.setLastName(this.lastName);
-
       address.setStreet(this.street);
       address.setStreetNumber(this.streetNumber);
       address.setCity(this.city);
