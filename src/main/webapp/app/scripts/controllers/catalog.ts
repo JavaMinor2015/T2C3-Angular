@@ -9,7 +9,6 @@
 angular.module('t2C3AngularApp')
   .controller('CatalogCtrl', ['$scope', 'catalogResource', 'shoppingCartService', function ($scope, catalogResource, shoppingCartService) {
     $scope.products = catalogResource.query();
-    
     $scope.addToCart = function (product) {
       let productOfCartItem = shoppingCartService.getProductByProductID(product.id);
       if (productOfCartItem) {
