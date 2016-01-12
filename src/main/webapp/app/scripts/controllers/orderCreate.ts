@@ -36,9 +36,6 @@ angular.module('t2C3AngularApp')
       orderService.placeOrder(userInfo);
       orderResource.save(orderService.order);
 
-
-
-
       // Navigate to thank you page
       $location.path('/thanksOrder');
     };
