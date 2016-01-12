@@ -1,39 +1,29 @@
-/// <reference path="address.ts" />
 'use strict';
 /**
  * Order object interface to be implemented and sent to server.
  */
 module t2C3AngularApp {
-  export class UserInfo{
-    public constructor(){
+  export class UserInfo {
 
-    }
+    private firstName : String;
+    private lastName : String;
+    private emailAddress : String;
+    private address: t2C3AngularApp.Address;
 
-    public getNewInstance(): UserInfo{
-      return new UserInfo();
-    }
-
-    private firstName:String;
-    private lastName:String;
-
-    private address:Address;
-
-    private emailAddress:String;
-
-    public setFirstName(firstName : String){
+    public setFirstName(firstName : String) {
       this.firstName = firstName;
       console.log('FIRST NAME SET');
     }
 
-    public getFirstName(){
+    public getFirstName() {
       return this.firstName;
     }
 
-    public setLastName(lastName : String){
+    public setLastName(lastName : String) {
       this.lastName = lastName;
     }
 
-    public getLastName(){
+    public getLastName() {
       return this.lastName;
     }
 
@@ -48,19 +38,13 @@ module t2C3AngularApp {
       return this.address;
     }
 
-    public setEmailAddress(emailAddress : String){
+
+    public setEmailAddress(emailAddress : String) {
       this.emailAddress = emailAddress;
     }
 
-    public getEmailAddress(){
+    public getEmailAddress() {
       return this.emailAddress;
     }
   }
 }
-
-/**
- * Made this class as a service so it can be used inside an Angular v1 objects like a controller.
- * And be able to get a new object of this class by calling the getNewInstance() function.
- */
-//angular.module('t2C3AngularApp')
-//  .service('UserInfo', t2C3AngularApp.UserInfo);

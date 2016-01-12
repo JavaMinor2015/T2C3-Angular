@@ -3,15 +3,11 @@
  * Adres object interface to be implemented and sent to server.
  */
 module t2C3AngularApp {
-  export class Address{
-    public constructor(){
-
-    }
-
-    private city:String;
-    private street:String;
-    private streetNumber:String;
-    private zipcode:String;
+  export class Address {
+    private city : String;
+    private street : String;
+    private streetNumber : String;
+    private zipcode : String;
 
     public setCity(city : String) {
       this.city = city;
