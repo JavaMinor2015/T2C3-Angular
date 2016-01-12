@@ -3,11 +3,12 @@
  * Order object interface to be implemented and sent to server.
  */
 module t2C3AngularApp {
-  export class UserInfo{
+  export class UserInfo {
 
-    private firstName:String;
-    private lastName:String;
-    private emailAddress:String;
+    private firstName : String;
+    private lastName : String;
+    private emailAddress : String;
+    private address: t2C3AngularApp.Address;
 
     public setFirstName(firstName : String) {
       this.firstName = firstName;
