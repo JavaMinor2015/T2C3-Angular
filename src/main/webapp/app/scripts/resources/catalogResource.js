@@ -1,3 +1,4 @@
+/// <reference path="../app.ts" />
 'use strict';
 var catalogResource = angular.module('catalogResource', ['ngResource']);
 catalogResource.factory('catalogResource', ['$resource',
