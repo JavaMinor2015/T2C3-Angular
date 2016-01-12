@@ -3,7 +3,7 @@
 // Generated on 2015-12-17 using
 // generator-karma 1.0.1
 
-module.exports = function(config) {
+module.exports = function (config) {
   'use strict';
 
   config.set({
@@ -37,10 +37,36 @@ module.exports = function(config) {
       "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],
+    reporters: ['junit','progress', 'coverage'],
+    junitReporter: {
+      outputDir: 'build/reports/junit',
+      suite: 'models'
+    },
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/**/*.js': ['coverage']
+    },
 
+    // optionally, configure the reporter
+      coverageReporter: {
+        // specify a common output directory
+        dir: 'build/reports/coverage',
+        reporters: [
+          // reporters not supporting the `file` property
+          { type: 'html', subdir: 'report-html' },
+          { type: 'lcov', subdir: 'report-lcov' },
+          // reporters supporting the `file` property, use `subdir` to directly
+          // output them in the `dir` directory
+          { type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
+          { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
+          { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
+          { type: 'text', subdir: '.', file: 'text.txt' },
+          { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
+        ]},
     // list of files / patterns to exclude
-    exclude: [
-    ],
+    exclude: ["app/scripts/typings/**/*.js"],
 
     // web server port
     port: 7676,
@@ -60,9 +86,9 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       "karma-phantomjs-launcher",
-      "karma-jasmine"
-    ],
-
+      "karma-jasmine",
+      "karma-coverage",
+    "karma-junit-reporter"],
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
     singleRun: false,

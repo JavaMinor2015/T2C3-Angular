@@ -1,5 +1,5 @@
-'use strict';
 
+/// <reference path="typings/angularjs/angular.d.ts" />
 /**
  * @ngdoc overview
  * @name t2C3AngularApp
@@ -62,6 +62,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  })
+  });
 
 //angular.module('t2C3AngularApp.services', []);

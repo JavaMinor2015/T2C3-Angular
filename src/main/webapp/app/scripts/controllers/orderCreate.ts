@@ -1,7 +1,6 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/order.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
-/// <reference path="../pojos/address.ts"/>
 'use strict';
 /**
  * @ngdoc function
@@ -11,14 +10,16 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', '$location','orderResource', function ($scope, orderService, $location, orderResource) {
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource'
+    , function ($scope, orderService, $location, orderResource) {
     $scope.placeOrder = function () {
       console.log('clicked order');
 
       // Unfortunately no direct binding and have type safety in angular 1.x + typescript
       // without rewriting this as a typescript controller with all troubles it comes with.
-      var userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo(); // jshint ignore:line
-      var address : t2C3AngularApp.Address  = new t2C3AngularApp.Address; // jshint ignore:line
+      let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo(); // jshint ignore:line
+      let address : t2C3AngularApp.Address  = new t2C3AngularApp.Address; // jshint ignore:line
+
       userInfo.setFirstName(this.firstName);
       userInfo.setLastName(this.lastName);
 
@@ -40,5 +41,5 @@ angular.module('t2C3AngularApp')
 
       // Navigate to thank you page
       $location.path('/thanksOrder');
-    }
+    };
   }]);
