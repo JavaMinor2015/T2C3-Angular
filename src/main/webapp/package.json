@@ -38,7 +38,8 @@
     "grunt-tslint": "^3.0.1",
     "grunt-ts": "^5.2.0",
     "karma-coverage":"^0.5.3",
-    "karma-junit-reporter":"^0.3.8"
+    "karma-junit-reporter":"^0.3.8",
+    "typescript":"^1.7.3"
   },
   "engines": {
     "node": ">=0.10.0"
