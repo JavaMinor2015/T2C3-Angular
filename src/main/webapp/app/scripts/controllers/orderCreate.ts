@@ -1,5 +1,6 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/order.ts"/>
+/// <reference path="../pojos/address.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
 'use strict';
 /**

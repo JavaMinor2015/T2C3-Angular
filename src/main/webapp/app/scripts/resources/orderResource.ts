@@ -1,3 +1,4 @@
+/// <reference path="../app.ts" />
 'use strict';
 let orderResource = angular.module('orderResource', ['ngResource']);
 
