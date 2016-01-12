@@ -3,13 +3,16 @@
 /src/main/webapp/node_modules
 /src/main/webapp/app/scripts/**/*.js
 /src/main/webapp/app/scripts/**/*.js.map
-/src/main/webapp/app/scripts/*.js
-/src/main/webapp/app/scripts/*.js.map
+/src/main/webapp/test/spec/**/*.js
+/src/main/webapp/test/spec/**/*.js.map
+
+/src/main/webapp/build/
 
 .tmp/
 target-grunt/
 target/
 dist/
+.tscache/
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
 
@@ -58,3 +61,4 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+src/main/webapp/bower_components/
