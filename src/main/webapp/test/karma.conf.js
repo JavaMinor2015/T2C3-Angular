@@ -37,8 +37,11 @@ module.exports = function (config) {
       "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],
-    reporters: ['progress', 'coverage'],
-
+    reporters: ['junit','progress', 'coverage'],
+    junitReporter: {
+      outputDir: 'build/reports/junit',
+      suite: 'models'
+    },
     preprocessors: {
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
@@ -84,7 +87,8 @@ module.exports = function (config) {
     plugins: [
       "karma-phantomjs-launcher",
       "karma-jasmine",
-      "karma-coverage"     ],
+      "karma-coverage",
+    "karma-junit-reporter"],
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
     singleRun: false,

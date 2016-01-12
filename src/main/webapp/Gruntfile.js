@@ -34,7 +34,8 @@ module.exports = function (grunt) {
       },
       options: {
         sourceMap: true,
-        target: 'es5'
+        target: 'es5',
+        declaration: false
       }
     },
 
@@ -50,9 +51,10 @@ module.exports = function (grunt) {
 
         src: [
 
-          './app/scripts/{,*/}*.ts'
+          './app/scripts/{,*/}*.ts',"!./**/*.d.ts"
 
         ]
+
 
       }
     },
@@ -441,9 +443,7 @@ module.exports = function (grunt) {
         'copy:styles'
       ],
       dist: [
-        'copy:styles',
-        'imagemin',
-        'svgmin'
+        'copy:styles'
       ]
     },
 
