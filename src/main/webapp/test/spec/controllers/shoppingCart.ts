@@ -1,4 +1,3 @@
-
 /// <reference path="../../../app/scripts/typings/jasmine/jasmine.d.ts" />
 /// <reference path="../../../app/scripts/typings/angularjs/angular-mocks.d.ts" />
 
@@ -23,20 +22,19 @@ describe('Controller: ShoppingCartCtrl', function () {
   var item1 = {
     amount : 2,
     product : {
-      id: 1, version: 0, name: "TheOne", price: 1.10, category: "PART"
+      id: 1, name: "TheOne", price: 1.10
     }
   }
   var item2 = {
     amount : 1,
     product : {
-      id: 2, version: 0, name: "TheSecond", price: 0.50, category: "PART"
+      id: 2, name: "TheSecond", price: 0.50
     }
   }
 
   //Testcases here
   it('should remove the correct item from the shoppingcart', function () {
-    var cost = 0;
-    cost = scope.total();
+    var cost = scope.total();
     expect(cost).toBe(0);
 
     // Add items to cart
@@ -54,5 +52,4 @@ describe('Controller: ShoppingCartCtrl', function () {
     cost = scope.total();
     expect(cost).toBe(0.50);
   });
-
 });

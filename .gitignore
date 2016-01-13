@@ -1,10 +1,14 @@
 .sass-cache
 
 /src/main/webapp/node_modules
+
+# TypeScript generated js files
 /src/main/webapp/app/scripts/**/*.js
 /src/main/webapp/app/scripts/**/*.js.map
 /src/main/webapp/test/spec/**/*.js
 /src/main/webapp/test/spec/**/*.js.map
+/src/main/webapp/test/e2e/**/*.js
+/src/main/webapp/test/e2e/**/*.js.map
 
 /src/main/webapp/build/
 

@@ -28,6 +28,23 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    protractor: {
+      options: {
+        configFile: "test/e2e-protractor-conf.js", // Default config file
+        //keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+        args: {
+          // Arguments passed to the command
+        }
+      },
+      test: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+        options: {
+          configFile: "test/e2e-protractor-conf.js", // Target-specific config file
+          args: {} // Target-specific arguments
+        }
+      },
+    },
+
     ts: {
       default: {
         src: ["**/*.ts", "!node_modules/**/*.ts","!app/scripts/typings/**/*.ts"]
@@ -490,6 +507,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ts',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -507,12 +525,19 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-
     'test',
     'build'
   ]);
 
-  grunt.loadNpmTasks("grunt-ts");
+  // Will run normal tests first then end 2 end tests
+  grunt.registerTask('e2e', [
+    'protractor:test'
+  ]);
 
+  // TypeScript support
+  grunt.loadNpmTasks("grunt-ts");
   grunt.loadNpmTasks("grunt-tslint");
+
+  // End to end test runner
+  grunt.loadNpmTasks('grunt-protractor-runner');
 };

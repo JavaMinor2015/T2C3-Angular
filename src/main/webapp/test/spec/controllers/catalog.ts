@@ -1,4 +1,3 @@
-
 /// <reference path="../../../app/scripts/typings/jasmine/jasmine.d.ts" />
 /// <reference path="../../../app/scripts/typings/angularjs/angular-mocks.d.ts" />
 describe('Controller: CatalogCtrl', function () {
@@ -19,6 +18,7 @@ describe('Controller: CatalogCtrl', function () {
     });
   }));
 
+  // Test products need only few properties
   var product1 = {
     id: 1, name : "ThisOne"
   }
