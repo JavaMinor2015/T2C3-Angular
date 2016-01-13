@@ -6,5 +6,5 @@ module eee {
   }
 }
 
-exports.module = eee;
+//exports.module = eee;
 // Want to get this common test code in all the e2e tests.
