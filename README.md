@@ -16,6 +16,7 @@ Running maven install should build a temporary `target-grunt` folder wich can be
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+Running 'grunt serve' then 'grunt e2e' will start the End 2 End UI tests using Chrome.
 
 ## TypeScript note
 
