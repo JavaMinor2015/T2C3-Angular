@@ -1,6 +1,5 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/order.ts"/>
-/// <reference path="../pojos/address.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
 'use strict';
 /**
@@ -11,33 +10,35 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource'
-    , function ($scope, orderService, $location, orderResource) {
-    $scope.placeOrder = function () {
-      console.log('clicked order');
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService'
+    , function ($scope, orderService, $location, orderResource, userService) {
 
-      // Unfortunately no direct binding and have type safety in angular 1.x + typescript
-      // without rewriting this as a typescript controller with all troubles it comes with.
-      let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo(); // jshint ignore:line
-      let address : t2C3AngularApp.Address  = new t2C3AngularApp.Address; // jshint ignore:line
+      $scope.placeOrder = function () {
+        console.log('clicked order');
 
-      // Sets all field information in the local objects
-      userInfo.setFirstName(this.firstName);
-      userInfo.setLastName(this.lastName);
-      address.setStreet(this.street);
-      address.setStreetNumber(this.streetNumber);
-      address.setCity(this.city);
-      address.setZipcode(this.zipcode);
-      //console.log(this.address);
-      userInfo.setAddress(address);
+        // Unfortunately no direct binding and have type safety in angular 1.x + typescript
+        // without rewriting this as a typescript controller with all troubles it comes with.
+        let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo(); // jshint ignore:line
+        let address : t2C3AngularApp.Address = new t2C3AngularApp.Address; // jshint ignore:line
 
-      userInfo.setEmailAddress(this.emailAddress);
+        userInfo.setFirstName(this.firstName);
+        userInfo.setLastName(this.lastName);
 
-      // Pass userInfo object to orderService
-      orderService.placeOrder(userInfo);
-      orderResource.save(orderService.order);
+        address.setStreet(this.street);
+        address.setStreetNumber(this.streetNumber);
+        address.setCity(this.city);
+        address.setZipcode(this.zipcode);
+        //console.log(this.address);
+        userInfo.setAddress(address);
+        userInfo.setEmailAddress(this.emailAddress);
 
-      // Navigate to thank you page
-      $location.path('/thanksOrder');
-    };
-  }]);
+        // Pass userInfo object to orderService
+        orderService.placeOrder(userInfo);
+        orderService.order.setSecurityToken(userService.getSecurityToken());
+        orderResource.save(orderService.order);
+
+
+        // Navigate to thank you page
+        $location.path('/thanksOrder');
+      };
+    }]);
