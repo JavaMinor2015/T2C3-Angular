@@ -39,7 +39,10 @@
     "grunt-ts": "^5.2.0",
     "karma-coverage":"^0.5.3",
     "karma-junit-reporter":"^0.3.8",
-    "typescript":"^1.7.3"
+    "typescript":"^1.7.3",
+    "protractor":"^3.0.0",
+    "grunt-protractor-runner":"^3.0.0",
+    "chromedriver": "^2.20.0"
   },
   "engines": {
     "node": ">=0.10.0"
