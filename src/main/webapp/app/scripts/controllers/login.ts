@@ -26,7 +26,11 @@ angular.module('t2C3AngularApp')
 
       $scope.logOut = function () {
         console.log(userService.getSecurityToken());
-        $http.post('http://localhost:6789/logout', userService.getSecurityToken());
+        $http.post('http://localhost:6789/logout', userService.getSecurityToken()).error(function(response){
+          // On Error
+          console.log(response);
+        });
+        // Logout locally
         userService.logout();
       };
     }]);

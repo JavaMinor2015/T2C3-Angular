@@ -1,6 +1,4 @@
 /// <reference path="../app.ts" />
-
-
 'use strict';
 module t2C3AngularApp {
   export class UserService {
