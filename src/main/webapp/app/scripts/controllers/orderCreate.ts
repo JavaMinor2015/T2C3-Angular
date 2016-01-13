@@ -12,6 +12,7 @@
 angular.module('t2C3AngularApp')
   .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService'
     , function ($scope, orderService, $location, orderResource, userService) {
+
       $scope.placeOrder = function () {
         console.log('clicked order');
 
@@ -29,11 +30,11 @@ angular.module('t2C3AngularApp')
         address.setZipcode(this.zipcode);
         //console.log(this.address);
         userInfo.setAddress(address);
-
         userInfo.setEmailAddress(this.emailAddress);
 
         // Pass userInfo object to orderService
         orderService.placeOrder(userInfo);
+        orderService.order.setSecurityToken(userService.getSecurityToken());
         orderResource.save(orderService.order);
 
 

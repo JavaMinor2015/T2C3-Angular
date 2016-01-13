@@ -1,6 +1,6 @@
 angular.module('t2C3AngularApp')
-  .controller('RegisterCtrl', ['$scope', 'UserService', '$http'
-    , function ($scope, userService, $http) {
+  .controller('RegisterCtrl', ['$scope', 'UserService', '$http', '$location'
+    , function ($scope, userService, $http, $location) {
       $scope.registerCustomer = function () {
 
 
@@ -20,8 +20,8 @@ angular.module('t2C3AngularApp')
         credentials.setPassword(this.password);
         customer.setCredentials(credentials);
         //register user
-        $http.post('http://localhost:6789/register', customer).then(function successCallback(response) {
-            userService.login(customer, response.data.token);
+        $http.post('http://localhost:6789/register', customer).then(function successCallback() {
+            $location.path('#/login');
           }
         );
 

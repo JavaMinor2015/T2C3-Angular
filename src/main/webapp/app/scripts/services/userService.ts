@@ -12,15 +12,24 @@ module t2C3AngularApp {
       return this._customer.getCredentials().getUsername();
     }
 
+    public getCustomer() : t2C3AngularApp.Customer {
+      return this._customer;
+    }
+
 
     public getSecurityToken() : t2C3AngularApp.Token {
       return this._securityToken;
     }
 
-    public login(customer : t2C3AngularApp.Customer, securityToken : Token) {
-      this._customer = customer;
-      console.log(securityToken);
-      this._securityToken = securityToken;
+    public login(responsedata) {
+
+      console.log(responsedata.value);
+
+
+      this._customer = responsedata.customer;
+      this._securityToken = responsedata.value;
+      console.log(this._customer);
+      console.log(this._securityToken);
 
     }
 
