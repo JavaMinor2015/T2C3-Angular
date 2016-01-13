@@ -9,6 +9,16 @@ Goto the `webapp\` directory.
 Run `npm install` and `bower install` to install all dependencies.  
 Run `grunt` for building and `grunt serve` for preview.
 
+## Build only
+
+Running maven install should build a temporary `target-grunt` folder wich can be hosted using `grunt serve`.
+
 ## Testing
 
-Running `grunt test` will run the unit tests with karma.
+Running `grunt test` will run the unit tests with karma.  
+Running `grunt serve` then `grunt e2e` will start the End 2 End UI tests using Chrome.
+
+## TypeScript note
+
+All .js files in `scripts/` and `test/spec` folders will be gitignored. Develop here only in .ts (TypeScript) files.
+Running `grunt`, `grunt serve` or `grunt test` commands or using intelliJ's TypeScript compiler will convert any .ts files into .js files automaticly. Any changes inside .js files will be lost.

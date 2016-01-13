@@ -1,3 +1,4 @@
+/// <reference path="../pojos/address.ts"/>
 'use strict';
 /**
  * Order object interface to be implemented and sent to server.

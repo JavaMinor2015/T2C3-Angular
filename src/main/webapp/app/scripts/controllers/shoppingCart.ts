@@ -1,3 +1,4 @@
+/// <reference path="../app.ts" />
 'use strict';
 /**
  * @ngdoc function
@@ -12,14 +13,13 @@ angular.module('t2C3AngularApp')
     , function ($scope, shoppingCartService, orderService, $location) {
 
     $scope.shoppingCart = shoppingCartService.getCart();
-    $scope.removeItem = function (item) {
-      shoppingCartService.removeItem(item);
+    $scope.removeItem = function (index) {
+      shoppingCartService.removeItem(index);
     };
 
     $scope.total = function () {
       let total = 0;
       angular.forEach($scope.shoppingCart, function (item) {
-        console.log(item);
         total += item.amount * item.product.price;
       });
 
@@ -28,6 +28,7 @@ angular.module('t2C3AngularApp')
 
     $scope.placeOrder = function () {
       orderService.setCartItems(this.shoppingCart);
+      // Navigate to page
       $location.path('/orderCreate');
     };
   }]);
