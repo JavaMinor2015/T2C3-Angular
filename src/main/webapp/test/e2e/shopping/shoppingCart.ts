@@ -1,5 +1,5 @@
 /// <reference path="../../../app/scripts/typings/jasmine/jasmine.d.ts" />
-
+/// <reference path="../protractor.d.ts" />
 // DISABLED THIS TEST, cannot use inject or angular in here.
 // So i cannot talk to the service and get cart items.
 
@@ -9,9 +9,6 @@
 describe('adding items to cart', function () {
   // The correct catalog routing url
   var catalogURL = browser.baseUrl + '#/catalog';
-
-  // Get angular
-  var angular = browser.window.angular;
 
   browser.get("/");
 
