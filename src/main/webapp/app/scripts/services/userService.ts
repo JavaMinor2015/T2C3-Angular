@@ -22,15 +22,10 @@ module t2C3AngularApp {
     }
 
     public login(responsedata) {
-
-      console.log(responsedata.value);
-
-
-      this._customer = responsedata.customer;
+      this._customer = responsedata.username;
       this._securityToken = responsedata.value;
       console.log(this._customer);
       console.log(this._securityToken);
-
     }
 
     public logout() {
