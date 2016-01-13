@@ -4,7 +4,7 @@
  */
 describe('angularjs homepage', function() {
   // xit disables this test, it runs it
-  xit('should greet the named user', function() {
+  it('should greet the named user', function() {
     browser.get('http://www.angularjs.org');
 
     element(by.model('yourName')).sendKeys('Julie');
