@@ -1,4 +1,5 @@
 /// <reference path="../../../app/scripts/typings/jasmine/jasmine.d.ts" />
+/// <reference path="../protractor.d.ts" />
 /**
  *  Tests default protractor functionality. Proves protractor is working.
  */
