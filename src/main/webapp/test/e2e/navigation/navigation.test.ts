@@ -13,6 +13,7 @@ describe('page routing test', function() {
 
     // Get navigation bar item for 'Catalog' page
     var navItems = element.all(by.css('#js-navbar-collapse li'));
+
     var item = navItems.get(1);
     expect(item.getText()).toEqual(catalogNavText);
 
