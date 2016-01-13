@@ -44,6 +44,8 @@
           <li><a ng-href="#/catalog">Catalog</a></li>
           <li><a ng-href="#/shoppingCart">Shopping cart</a></li>
           <li><a ng-href="#/register">Register</a></li>
+          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">login</a></li>
+          <li><button type="submit"  ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</button></li>
         </ul>
       </div>
     </div>
@@ -95,12 +97,14 @@
 <script src="scripts/pojos/address.js"></script>
 <script src="scripts/pojos/credentials.js"></script>
 <script src="scripts/pojos/customer.js"></script>
+<script src="scripts/pojos/token.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/shoppingCart.js"></script>
 <script src="scripts/controllers/orderCreate.js"></script>
 <script src="scripts/controllers/catalog.js"></script>
 <script src="scripts/controllers/register.js"></script>
+<script src="scripts/controllers/login.js"></script>
 <script src="scripts/resources/catalogResource.js"></script>
 <script src="scripts/resources/orderResource.js"></script>
 <script src="scripts/services/shoppingCartService.js"></script>

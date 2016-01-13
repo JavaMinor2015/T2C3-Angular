@@ -1,5 +1,5 @@
 angular.module('t2C3AngularApp')
-  .controller('RegisterCtrl', ['$scope', 'userService', '$http'
+  .controller('RegisterCtrl', ['$scope', 'UserService', '$http'
     , function ($scope, userService, $http) {
       $scope.registerCustomer = function () {
 
@@ -15,17 +15,15 @@ angular.module('t2C3AngularApp')
         address.setStreetNumber(this.streetNumber);
         address.setCity(this.city);
         address.setZipcode(this.zipcode);
-        console.log(customer);
         customer.setAddress(address);
-        console.log(customer);
         credentials.setUsername(this.username);
         credentials.setPassword(this.password);
-        console.log(customer);
         customer.setCredentials(credentials);
-        console.log(customer);
         //register user
-        $http.post('http://localhost:6789/register', customer);
-        //set Security token
+        $http.post('http://localhost:6789/register', customer).then(function successCallback(response) {
+            userService.login(customer, response.data.token);
+          }
+        );
 
 
       };

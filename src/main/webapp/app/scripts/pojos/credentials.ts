@@ -2,7 +2,7 @@
 module t2C3AngularApp {
   export class Credentials {
     private userName : string;
-    private hashedPassword : string;
+    private password : string;
 
 
  public getUsername() : string {
@@ -14,11 +14,11 @@ module t2C3AngularApp {
     }
 
  public getPassword() : string {
-      return this.hashedPassword;
+      return this.password;
     }
 
   public  setPassword(value : string) {
-      this.hashedPassword = value;
+      this.password = value;
     }
   }
 }
