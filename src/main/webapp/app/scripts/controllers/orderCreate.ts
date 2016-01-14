@@ -54,7 +54,9 @@ angular.module('t2C3AngularApp')
         orderService.placeOrder(userInfo);
         orderService.orderrequest.order = orderService.order;
         orderService.orderrequest.token = userService.getSecurityToken();
-        orderResource.save(orderService.orderrequest);
+        orderResource.save(orderService.orderrequest).then(function(){
+          orderService.clearOrder();
+        });
 
 
         // Navigate to thank you page
