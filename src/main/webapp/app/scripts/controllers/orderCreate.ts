@@ -1,6 +1,9 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/order.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
+/// <reference path="../pojos/customer.ts"/>
+/// <reference path="../pojos/credentials.ts"/>
+/// <reference path="../pojos/address.ts"/>
 'use strict';
 /**
  * @ngdoc function
@@ -12,7 +15,22 @@
 angular.module('t2C3AngularApp')
   .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService'
     , function ($scope, orderService, $location, orderResource, userService) {
+      if (userService.isLoggedIn()) {
+        let customer : t2C3AngularApp.Customer;
+        customer = userService.getCustomer();
+        let address : t2C3AngularApp.Address;
+        address = customer.address;
+        $scope.firstName = customer.firstName;
+        $scope.lastName = customer.lastName;
+        $scope.emailAddress = customer.email;
+        if (address) {
+          $scope.straatnaam = address.street;
+          $scope.straatnummer = address.streetNumber;
+          $scope.city = address.city;
+          $scope.zipcode = address.zipcode;
+        }
 
+      }
       $scope.placeOrder = function () {
         console.log('clicked order');
 
