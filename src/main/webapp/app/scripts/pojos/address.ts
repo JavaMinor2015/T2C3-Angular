@@ -4,10 +4,10 @@
  */
 module t2C3AngularApp {
   export class Address {
-    private city : String;
-    private street : String;
-    private streetNumber : String;
-    private zipcode : String;
+    public city : String;
+    public street : String;
+    public streetNumber : String;
+    public zipcode : String;
 
     public setCity(city : String) {
       this.city = city;

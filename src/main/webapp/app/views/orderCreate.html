@@ -4,29 +4,30 @@
 
   <form name="orderForm">
 
-      <label>First name</label>
-      <input type="text" name="firstName" required ng-model="firstName">
+    <div class="input-group" >
+
+
+      <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
       <br>
-      <label>Last name</label>
-      <input type="text" name="lastName" required ng-model="lastName">
+
+      <input type="text" name="lastName" class="form-control" placeholder="Achternaam" required ng-model="lastName">
       <br>
-      <label>Email</label>
-      <input type="text" name="email" ng-model="emailAddress">
+
+      <input type="text" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
       <br>
-      <label>straat naam</label>
-      <input type="text" name="street" ng-model="street">
+
+      <input type="text" name="street" class="form-control" placeholder="Straatnaam" ng-model="street">
+      <input type="text" name="streetNumber" class="form-control" placeholder="Straatnummer" ng-model="streetNumber">
       <br>
-      <label>straat nummer</label>
-      <input type="text" name="streetNumber" ng-model="streetNumber">
+
+      <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
       <br>
-      <label>stad</label>
-      <input type="text" name="city" ng-model="city">
-      <br>
-      <label>Postcode</label>
-      <input type="text" name="zipcode" ng-model="zipcode">
+
+      <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
       <br>
       <!--<span>{{firstName}}</span>-->
-    <!--<span>{{firstName}}</span>-->
-    <button type="button" ng-click="placeOrder()">Place order</button>
+
+    </div>
+    <button type="button" class="btn btn-default" ng-click="placeOrder()">Place order</button>
   </form>
 </div>
