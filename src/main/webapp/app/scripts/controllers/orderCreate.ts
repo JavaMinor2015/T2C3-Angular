@@ -34,8 +34,9 @@ angular.module('t2C3AngularApp')
 
         // Pass userInfo object to orderService
         orderService.placeOrder(userInfo);
-        orderService.order.setSecurityToken(userService.getSecurityToken());
-        orderResource.save(orderService.order);
+        orderService.orderrequest.order = orderService.order;
+        orderService.orderrequest.token = userService.getSecurityToken();
+        orderResource.save(orderService.orderrequest);
 
 
         // Navigate to thank you page

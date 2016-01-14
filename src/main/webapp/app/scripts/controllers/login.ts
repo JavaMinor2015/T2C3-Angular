@@ -11,7 +11,7 @@ angular.module('t2C3AngularApp')
         credentials.setUsername(this.username);
         credentials.setPassword(this.password);
 
-        $http.post('http://localhost:6789/login', credentials).then(function (response) {
+        $http.post('http://localhost:6789/login', credentials).then(function successCallback (response) {
             response.data.username = credentials.getUsername();
             console.log(response.data.username);
             userService.login(response.data);
