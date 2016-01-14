@@ -7,6 +7,7 @@
 'use strict';
 module t2C3AngularApp {
   export class Orderservice {
+    public orderrequest = {};
     private _order : t2C3AngularApp.Order = new t2C3AngularApp.Order(); // Current order object
 
     /**
@@ -26,7 +27,7 @@ module t2C3AngularApp {
       console.log(userInfo);
       // If userInfo is not empty
 
-      this._order.setUserInfo(userInfo);
+      this.order.setUserInfo(userInfo);
 
 
       // Todo: Send order object to server to create an order over REST post

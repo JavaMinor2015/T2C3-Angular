@@ -21,7 +21,9 @@ module t2C3AngularApp {
 
     public login(responsedata) {
       this._customer = responsedata.username;
-      this._securityToken = responsedata.value;
+      this._securityToken = new t2C3AngularApp.Token();
+
+      this._securityToken.setValue(responsedata.value);
       console.log(this._customer);
       console.log(this._securityToken);
     }
