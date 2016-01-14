@@ -13,8 +13,8 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService'
-    , function ($scope, orderService, $location, orderResource, userService) {
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService', 'shoppingCartService'
+    , function ($scope, orderService, $location, orderResource, userService, shoppingCartService) {
       if (userService.isLoggedIn()) {
         let customer : t2C3AngularApp.Customer;
         customer = userService.getCustomer();
@@ -54,8 +54,9 @@ angular.module('t2C3AngularApp')
         orderService.placeOrder(userInfo);
         orderService.orderrequest.order = orderService.order;
         orderService.orderrequest.token = userService.getSecurityToken();
-        orderResource.save(orderService.orderrequest);
-
+        orderResource.save(orderService.orderrequest, function success() {
+          shoppingCartService.clearCart();
+        });
 
         // Navigate to thank you page
         $location.path('/thanksOrder');
