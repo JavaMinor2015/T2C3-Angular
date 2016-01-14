@@ -1,37 +1,37 @@
 <div ng:controller="RegisterCtrl">
-  <h4>Order form</h4>
+  <h4>Register Form</h4>
   <br>
 
-  <form name="orderForm">
-    <label>username</label>
-    <input type="text" name="username" required ng-model="username">
+  <form name="registerForm">
+    <div class="input-group">
+
+    <input type="text" name="username" class="form-control" placeholder="Username" required ng-model="username">
     <br>
-    <label>password</label>
-    <input type="password" name="password" required ng-model="password">
+
+    <input type="password" name="password" class="form-control" placeholder="Password" required ng-model="password">
     <br>
-    <label>First name</label>
-    <input type="text" name="firstName" required ng-model="firstName">
+
+    <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
     <br>
-    <label>Last name</label>
-    <input type="text" name="lastName" required ng-model="lastName">
+
+    <input type="text" name="lastName" class="form-control" placeholder="Achternaam" required ng-model="lastName">
     <br>
-    <label>Email</label>
-    <input type="text" name="email" ng-model="emailAddress">
+
+    <input type="text" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
     <br>
-    <label>straat naam</label>
-    <input type="text" name="street" ng-model="street">
+
+    <input type="text" name="street" class="form-control" placeholder="Straatnaam" ng-model="street">
+    <input type="text" name="streetNumber" class="form-control" placeholder="Straatnummer" ng-model="streetNumber">
     <br>
-    <label>straat nummer</label>
-    <input type="text" name="streetNumber" ng-model="streetNumber">
+
+    <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
     <br>
-    <label>stad</label>
-    <input type="text" name="city" ng-model="city">
-    <br>
-    <label>Postcode</label>
-    <input type="text" name="zipcode" ng-model="zipcode">
+
+    <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
     <br>
     <!--<span>{{firstName}}</span>-->
-    <button type="button" ng-click="registerCustomer()">Register!</button>
+    <button type="button" class="btn btn-default" ng-click="registerCustomer()">Register!</button>
+    </div>
   </form>
 </div>
 

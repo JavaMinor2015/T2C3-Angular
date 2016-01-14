@@ -44,8 +44,8 @@
           <li><a ng-href="#/catalog">Catalog</a></li>
           <li><a ng-href="#/shoppingCart">Shopping cart</a></li>
           <li><a ng-href="#/register">Register</a></li>
-          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">login</a></li>
-          <li><button type="submit"  ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</button></li>
+          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
+          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
         </ul>
       </div>
     </div>
