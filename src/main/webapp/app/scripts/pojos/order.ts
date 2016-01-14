@@ -2,21 +2,28 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/userInfo.ts"/>
 /// <reference path="../pojos/cartItem.ts"/>
+/// <reference path="../pojos/token.ts"/>
 'use strict';
 /**
  * Order object to be sent to server.
  */
-module t2C3AngularApp{
-  export class Order{
+module t2C3AngularApp {
+  export class Order {
+    public items : Array<any>;
     private customerData : UserInfo;
-    private items : Array<CartItem>;
+    private token : Token;
 
-    public setUserInfo(userInfo : UserInfo){
+
+    public setUserInfo(userInfo : UserInfo) {
       this.customerData = userInfo;
     }
 
-    public setCartItems(cartItems : Array<CartItem>){
+    public setCartItems(cartItems : Array<any>) {
       this.items = cartItems;
+    }
+
+    public setSecurityToken(token : Token) {
+      this.token = token;
     }
   }
 }

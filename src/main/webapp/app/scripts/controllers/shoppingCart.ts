@@ -1,3 +1,4 @@
+/// <reference path="../app.ts" />
 'use strict';
 /**
  * @ngdoc function
@@ -8,25 +9,30 @@
  */
 
 angular.module('t2C3AngularApp')
-  .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', 'orderService', '$location', function ($scope, shoppingCartService, orderService, $location) {
+  .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', 'orderService', '$location'
+    , function ($scope, shoppingCartService, orderService, $location) {
 
-      $scope.shoppingCart = shoppingCartService.getCart();
-      $scope.removeItem = function(item) {
-        shoppingCartService.removeItem(item);
-      };
+    $scope.shoppingCart = shoppingCartService.getCart();
+    $scope.removeItem = function (index) {
+      shoppingCartService.removeItem(index);
+    };
+    $scope.countCart = function(){
+      return shoppingCartService.getCart().length;
+    };
 
-      $scope.total = function() {
-        var total = 0;
-        angular.forEach($scope.shoppingCart, function(item) {
-          console.log(item);
-          total += item.amount * item.product.price;
-        })
 
-        return total;
-      };
+    $scope.total = function () {
+      let total = 0;
+      angular.forEach($scope.shoppingCart, function (item) {
+        total += item.amount * item.product.price;
+      });
 
-    $scope.placeOrder = function(){
+      return total;
+    };
+
+    $scope.placeOrder = function () {
       orderService.setCartItems(this.shoppingCart);
+      // Navigate to page
       $location.path('/orderCreate');
     };
   }]);

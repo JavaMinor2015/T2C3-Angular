@@ -19,6 +19,9 @@
       </td>
     </tr>
   </table>
-  <p align="right">Total: {{total() | currency:"&euro;"}}</p>
-  <p align="right"><button ng-click="placeOrder()">Order</button> </p>
+  <p name="totalprice" align="right">Total: {{total() | currency:"&euro;"}}</p>
+
+  <p align="right">
+    <button name="orderButton" ng-click="placeOrder()">Order</button>
+  </p>
 </div>

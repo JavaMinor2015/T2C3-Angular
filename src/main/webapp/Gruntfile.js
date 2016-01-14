@@ -28,6 +28,55 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    protractor: {
+      options: {
+        configFile: "test/e2e-protractor-conf.js", // Default config file
+        //keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+        args: {
+          // Arguments passed to the command
+        }
+      },
+      test: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+        options: {
+          configFile: "test/e2e-protractor-conf.js", // Target-specific config file
+          args: {} // Target-specific arguments
+        }
+      },
+    },
+
+    ts: {
+      default: {
+        src: ["**/*.ts", "!node_modules/**/*.ts","!app/scripts/typings/**/*.ts"]
+      },
+      options: {
+        sourceMap: true,
+        target: 'es5',
+        declaration: false
+      }
+    },
+
+    tslint: {
+
+      options: {
+
+        configuration: "tslint.json"
+
+      },
+
+      files: {
+
+        src: [
+
+          './app/scripts/{,*/}*.ts',"!./**/*.d.ts"
+
+        ]
+
+
+      }
+    },
+
+
     // Project settings
     yeoman: appConfig,
 
@@ -202,23 +251,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       }
     },
 
@@ -411,9 +460,7 @@ module.exports = function (grunt) {
         'copy:styles'
       ],
       dist: [
-        'copy:styles',
-        'imagemin',
-        'svgmin'
+        'copy:styles'
       ]
     },
 
@@ -449,14 +496,18 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'tslint',
+    'ts',
     'wiredep',
     'concurrent:test',
     'postcss',
-    'connect:test'
+    'connect:test',
+    'karma'
   ]);
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ts',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -474,9 +525,19 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'newer:jscs',
     'test',
     'build'
   ]);
+
+  // Will run normal tests first then end 2 end tests
+  grunt.registerTask('e2e', [
+    'protractor:test'
+  ]);
+
+  // TypeScript support
+  grunt.loadNpmTasks("grunt-ts");
+  grunt.loadNpmTasks("grunt-tslint");
+
+  // End to end test runner
+  grunt.loadNpmTasks('grunt-protractor-runner');
 };

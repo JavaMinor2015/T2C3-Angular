@@ -1,9 +1,11 @@
-'use strict';
+
+/// <reference path="../../../app/scripts/typings/jasmine/jasmine.d.ts" />
+/// <reference path="../../../app/scripts/typings/angularjs/angular-mocks.d.ts" />
 
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('t2C3AngularApp'));
+  beforeEach(angular.mock.module('t2C3AngularApp'));
 
   var MainCtrl,
     scope;

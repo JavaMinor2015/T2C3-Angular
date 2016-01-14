@@ -1,22 +1,33 @@
 <div ng:controller="OrderCtrl">
-<h4>Order form</h4>
-<br>
-<form name="orderForm">
-  <label>First name</label>
+  <h4>Order form</h4>
   <br>
-  <input type="text" name="firstname" required ng-model="firstName"
-         ng-model-options="{ getterSetter: true }">
-  <br>
-  <label>Last name</label>
-  <br>
-  <input type="text" name="lastname" required ng-model="lastName">
-  <br>
-  <label>Email</label>
-  <br>
-  <input type="text" name="email" ng-model="emailAddress">
-  <br>
-  <br>
-  <!--<span>{{firstName}}</span>-->
-  <button type="button" ng-click="placeOrder()">Place order</button>
-</form>
+
+  <form name="orderForm">
+
+    <div class="input-group" >
+
+
+      <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
+      <br>
+
+      <input type="text" name="lastName" class="form-control" placeholder="Achternaam" required ng-model="lastName">
+      <br>
+
+      <input type="text" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
+      <br>
+
+      <input type="text" name="street" class="form-control" placeholder="Straatnaam" ng-model="street">
+      <input type="text" name="streetNumber" class="form-control" placeholder="Straatnummer" ng-model="streetNumber">
+      <br>
+
+      <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
+      <br>
+
+      <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
+      <br>
+      <!--<span>{{firstName}}</span>-->
+
+    </div>
+    <button type="button" class="btn btn-default" ng-click="placeOrder()">Place order</button>
+  </form>
 </div>
