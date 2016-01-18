@@ -37,8 +37,8 @@
       <div class="invalidWarning" ng-show="registerForm.zipcode.$invalid && registerForm.lastName.$touched">Invalid zipcode!</div>
 
     </div>
-    <span ng-show="registerForm.$error.required">Required fields not filled in yet.</span>
-    <br>
+    <div ng-show="registerForm.$error.required">Required fields not filled in yet.</div>
+    <div class="invalidWarning">{{errorResonseText}}</div>
     <button ng-disabled="registerForm.$invalid" type="button" class="btn btn-default" ng-click="registerCustomer()">Register!</button>
   </form>
   <br>
