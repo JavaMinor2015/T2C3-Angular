@@ -7,7 +7,7 @@ module t2C3AngularApp {
     public firstName : string;
     public lastName : string;
     public emailAddress: string;
-    private credentials : t2C3AngularApp.Credentials;
+    public credentials : t2C3AngularApp.Credentials;
 
     public getAddress() : t2C3AngularApp.Address {
       return this.address;

@@ -11,10 +11,24 @@
  */
 angular.module('t2C3AngularApp')
   .controller('CustomerOrderCtrl', ['$scope', 'customerOrderResource','orderResource','UserService', function ($scope, customerOrderResource,orderResource, userService) {
+
     $scope.orders = customerOrderResource.get({id :userService.getCustomer().id});
-    console.log($scope.orders);
+    let editModeOrderId = null;
+
     $scope.cancelOrder = function (order) {
-      orderResource.delete(order);
+      orderResource.delete(order.id);
     };
+    $scope.editAddress = function(order){
+      editModeOrderId = order.id;
+    };
+
+    $scope.saveAddress = function(order){
+      editModeOrderId = null;
+      customerOrderResource.save(order);
+    };
+
+    $scope.isEditMode = function(order){
+      return order.id === editModeOrderId;
+    }
 
   }]);

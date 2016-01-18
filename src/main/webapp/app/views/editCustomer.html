@@ -1,0 +1,33 @@
+<div ng:controller="EditCustomerCtrl">
+  <h4>Klant Wijzig Formulier</h4>
+  <br>
+
+  <form name="editCustomerForm" ng-submit="updateCustomer()" ng-controller="EditCustomerCtrl">
+    <div class="input-group">
+
+
+      <input type="password" name="password" class="form-control" placeholder="Password" required ng-model="password">
+      <br>
+
+      <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
+      <br>
+
+      <input type="text" name="lastName" class="form-control" placeholder="Achternaam" required ng-model="lastName">
+      <br>
+
+      <input type="text" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
+      <br>
+
+      <input type="text" name="street" class="form-control" placeholder="Straatnaam" ng-model="street">
+      <input type="text" name="streetNumber" class="form-control" placeholder="Straatnummer" ng-model="streetNumber">
+      <br>
+
+      <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
+      <br>
+
+      <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
+      <br>
+      <input type="submit" id="submit" value="Update!" />
+    </div>
+  </form>
+</div>

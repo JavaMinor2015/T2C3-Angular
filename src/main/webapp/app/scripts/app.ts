@@ -19,7 +19,8 @@ angular
     'ngTouch',
     'catalogResource',
     'orderResource',
-    'customerOrderResource'
+    'customerOrderResource',
+    'customerResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -71,8 +72,13 @@ angular
       })
       .when('/myorders',{
         templateUrl:'views/customerOrders.html',
-        contorller: 'CustomerOrderCtrl',
+        controller: 'CustomerOrderCtrl',
         controllerAs :'customerOrder'
+      })
+      .when('/account',{
+        templateUrl:'views/editCustomer.html',
+        controller: 'EditCustomerCtrl',
+        controllerAs :'editCustomer'
       })
       .otherwise({
         redirectTo: '/'
