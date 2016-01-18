@@ -26,7 +26,7 @@ angular.module('t2C3AngularApp')
         console.log(customer);
         //register user
         $http.post('http://localhost:6789/register', customer).then(function successCallback() {
-            $location.path('#/login');
+            $location.path('/login');
           }
         );
       };
