@@ -26,7 +26,8 @@
              required ng-pattern="/^[a-zA-Z\s]*$/">
 
       <input type="number" name="streetNumber" class="form-control" placeholder="Street number" ng-model="streetNumber"
-             required ng-min="0">
+             required ng-min="1">
+      <div class="invalidWarning" ng-show="registerForm.streetNumber.$invalid && registerForm.streetNumber.$touched">Invalid street number</div>
 
       <input type="text" name="city" class="form-control" placeholder="City" ng-model="city"
              required ng-pattern="/^[a-zA-Z\s]*$/"> <!--Pattern allows only letters and spaces-->
