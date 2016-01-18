@@ -27,7 +27,9 @@ angular.module('t2C3AngularApp')
         //register user
         $http.post('http://localhost:6789/register', customer).then(function successCallback() {
             $location.path('/login');
-          }
+          }, function errorCallback(response) {
+            //$scope.registerCustomer.username.$error = response;
+        }
         );
       };
     }]);
