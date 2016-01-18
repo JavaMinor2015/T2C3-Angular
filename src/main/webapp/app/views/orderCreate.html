@@ -4,13 +4,6 @@
 
   <form name="orderForm">
     <div class="input-group">
-      <input type="text" name="username" class="form-control" placeholder="Username" ng-model="username"
-             required ng-minlength="2">
-      <span class="invalidWarning" ng-show="orderForm.username.$invalid && orderForm.username.$touched">Too short</span>
-
-      <input type="password" name="password" class="form-control" placeholder="Password"
-             required ng-model="password">
-
       <input type="text" name="firstName" class="form-control" placeholder="Firstname" ng-model="firstName"
              required ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
       <div class="invalidWarning" ng-show="orderForm.firstName.$invalid && orderForm.firstName.$touched">Too short</div>
