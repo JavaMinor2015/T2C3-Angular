@@ -31,7 +31,7 @@ declare module angular.sanitize {
     export module filter {
 
         // Finds links in text input and turns them into html links.
-        // Supports http/https/ftp/mailto and plain email address links.
+        // Supports http/https/ftp/mailto and plain emailAddress address links.
         // see http://code.angularjs.org/1.2.0/docs/api/ngSanitize.filter:linky
         interface ILinky {
             (text: string, target?: string): string;

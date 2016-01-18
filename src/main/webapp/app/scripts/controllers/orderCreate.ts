@@ -16,21 +16,23 @@ angular.module('t2C3AngularApp')
   .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService', 'shoppingCartService'
     , function ($scope, orderService, $location, orderResource, userService, shoppingCartService) {
       if (userService.isLoggedIn()) {
-        let customer : t2C3AngularApp.Customer;
+        let customer:t2C3AngularApp.Customer;
         customer = userService.getCustomer();
-        let address : t2C3AngularApp.Address;
+        let address:t2C3AngularApp.Address;
         address = customer.address;
         $scope.firstName = customer.firstName;
         $scope.lastName = customer.lastName;
-        $scope.emailAddress = customer.email;
+        $scope.emailAddress = customer.emailAddress;
         if (address) {
-          $scope.straatnaam = address.street;
-          $scope.straatnummer = address.streetNumber;
+          console.log("test");
+          $scope.street = address.street;
+          $scope.streetNumber = address.streetNumber;
           $scope.city = address.city;
           $scope.zipcode = address.zipcode;
         }
-
       }
+
+
       $scope.placeOrder = function () {
         console.log('clicked order');
 

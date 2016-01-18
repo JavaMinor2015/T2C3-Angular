@@ -13,6 +13,7 @@ angular.module('t2C3AngularApp')
         let credentials : t2C3AngularApp.Credentials = new t2C3AngularApp.Credentials;
         customer.setFirstName(this.firstName);
         customer.setLastName(this.lastName);
+        customer.setEmailAddress(this.emailAddress);
         address.setStreet(this.street);
         address.setStreetNumber(this.streetNumber);
         address.setCity(this.city);
@@ -21,6 +22,8 @@ angular.module('t2C3AngularApp')
         credentials.setUsername(this.username);
         credentials.setPassword(this.password);
         customer.setCredentials(credentials);
+
+        console.log(customer);
         //register user
         $http.post('http://localhost:6789/register', customer).then(function successCallback() {
             $location.path('#/login');

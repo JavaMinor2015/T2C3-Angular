@@ -415,9 +415,9 @@ declare module "express" {
             originalUrl: string;
 
             url: string;
-            
+
             baseUrl: string;
-            
+
             app: Application;
         }
 
@@ -993,7 +993,7 @@ declare module "express" {
              *
              * Example:
              *
-             *    app.render('email', { name: 'Tobi' }, function(err, html){
+             *    app.render('emailAddress', { name: 'Tobi' }, function(err, html){
              *      // ...
              *    })
              *

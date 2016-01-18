@@ -5,7 +5,7 @@ module t2C3AngularApp {
     public address : t2C3AngularApp.Address;
     public firstName : string;
     public lastName : string;
-    public email: string;
+    public emailAddress: string;
     private credentials : t2C3AngularApp.Credentials;
 
     public getAddress() : t2C3AngularApp.Address {
@@ -30,6 +30,14 @@ module t2C3AngularApp {
 
     public setLastName(value : string) {
       this.lastName = value;
+    }
+
+    public getEmail() : string {
+      return this.emailAddress;
+    }
+
+    public setEmailAddress(value : string) {
+      this.emailAddress = value;
     }
 
     public getCredentials() : t2C3AngularApp.Credentials {
