@@ -2,8 +2,9 @@
 /// <reference path="../pojos/userInfo.ts"/>
 /// <reference path="../pojos/customer.ts"/>
 /// <reference path="../pojos/credentials.ts"/>
+'use strict';
 angular.module('t2C3AngularApp')
-  .controller('RegisterCtrl', ['$scope', 'UserService', '$http', '$location'
+  .controller('RegisterCtrl', ['$scope', 'userService', '$http', '$location'
     , function ($scope, userService, $http, $location) {
       $scope.registerCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript

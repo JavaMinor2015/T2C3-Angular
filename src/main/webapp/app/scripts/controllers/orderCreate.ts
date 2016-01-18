@@ -13,16 +13,16 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService', 'shoppingCartService'
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'userService', 'shoppingCartService'
     , function ($scope, orderService, $location, orderResource, userService, shoppingCartService) {
       if (userService.isLoggedIn()) {
         let customer : t2C3AngularApp.Customer;
         customer = userService.getCustomer();
         let address : t2C3AngularApp.Address;
-        address = customer.address;
-        $scope.firstName = customer.firstName;
-        $scope.lastName = customer.lastName;
-        $scope.emailAddress = customer.email;
+        address = customer.getAddress();
+        $scope.firstName = customer.getFirstName();
+        $scope.lastName = customer.getLastName();
+        $scope.emailAddress = customer.getEmail();
         if (address) {
           $scope.straatnaam = address.street;
           $scope.straatnummer = address.streetNumber;
