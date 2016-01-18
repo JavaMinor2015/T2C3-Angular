@@ -41,7 +41,8 @@ module t2C3AngularApp {
      */
     public clearOrder() {
       this._order.setUserInfo(null);
-      this._order.setCartItems([]);
+      console.log("clearing order");
+
     }
 
     get order() : t2C3AngularApp.Order {

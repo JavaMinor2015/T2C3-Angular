@@ -6,6 +6,10 @@ module t2C3AngularApp {
 
     private cart = [];
 
+    public clearCart() {
+      this.cart = [];
+    }
+
     public getCart() {
       return this.cart;
     }

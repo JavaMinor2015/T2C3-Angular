@@ -16,6 +16,10 @@ angular.module('t2C3AngularApp')
     $scope.removeItem = function (index) {
       shoppingCartService.removeItem(index);
     };
+    $scope.countCart = function(){
+      return shoppingCartService.getCart().length;
+    };
+
 
     $scope.total = function () {
       let total = 0;
