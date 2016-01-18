@@ -15,6 +15,7 @@ angular.module('t2C3AngularApp')
             response.data.username = credentials.getUsername();
             console.log(response.data.username);
             userService.login(response.data);
+            $http.defaults.headers.common['tokenValue']= response.data.value;
             $location.path('/');
           }
         );
@@ -30,7 +31,7 @@ angular.module('t2C3AngularApp')
           // On Error
           console.log(response);
         });
-        // Logout locally
+        $http.defaults.headers.common['tokenValue']= null;
         userService.logout();
       };
     }]);

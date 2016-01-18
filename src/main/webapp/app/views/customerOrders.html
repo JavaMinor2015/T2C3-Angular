@@ -1,0 +1,20 @@
+<table ng-controller="CustomerOrderCtrl" class="table">
+  <th>Id</th>
+  <th>Status</th>
+  <th>Items</th>
+  <th>Address</th>
+  <th>Prijs</th>
+
+  <th></th>
+  <tr ng-repeat="order in orders">
+    <td>{{ order.id }}</td>
+    <td>{{ order.status }}</td>
+    <td><{{ order.items }}></td>
+    <!--Need to implement boolean yesOrNo filter-->
+    <td>{{ order.customerData.address}}</td>
+    <td>{{ order.totalPrice}}</td>
+    <td>
+      <button class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
+    </td>
+  </tr>
+</table>

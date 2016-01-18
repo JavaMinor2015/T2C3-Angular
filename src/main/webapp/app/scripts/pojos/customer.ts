@@ -2,6 +2,7 @@
 /// <reference path="../pojos/address.ts" />
 module t2C3AngularApp {
   export class Customer {
+    public id: number;
     public address : t2C3AngularApp.Address;
     public firstName : string;
     public lastName : string;
