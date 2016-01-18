@@ -2,7 +2,7 @@
   <h4>Order form</h4>
   <br>
 
-  <form name="orderForm">
+  <form name="orderForm" ng-submit="placeOrder()" ng-controller="OrderCtrl">
 
     <div class="input-group" >
 
@@ -28,6 +28,9 @@
       <!--<span>{{firstName}}</span>-->
 
     </div>
-    <button type="button" class="btn btn-default" ng-click="placeOrder()">Place order</button>
+
+    <br>
+    <input type="submit" id="submit" value="Plaats Order!" />
+
   </form>
 </div>

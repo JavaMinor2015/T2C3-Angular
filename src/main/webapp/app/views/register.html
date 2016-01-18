@@ -2,7 +2,7 @@
   <h4>Register Form</h4>
   <br>
 
-  <form name="registerForm">
+  <form name="registerForm" ng-submit="registerCustomer()" ng-controller="RegisterCtrl">
     <div class="input-group">
 
     <input type="text" name="username" class="form-control" placeholder="Username" required ng-model="username">
@@ -29,8 +29,7 @@
 
     <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
     <br>
-    <!--<span>{{firstName}}</span>-->
-    <button type="button" class="btn btn-default" ng-click="registerCustomer()">Register!</button>
+      <input type="submit" id="submit" value="Registreer!" />
     </div>
   </form>
 </div>
