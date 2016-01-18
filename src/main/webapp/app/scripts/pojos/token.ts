@@ -1,3 +1,4 @@
+'use strict';
 module t2C3AngularApp {
   export class Token {
     private value : String;

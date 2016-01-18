@@ -1,3 +1,4 @@
+'use strict';
 module t2C3AngularApp {
   export class Customer {
     private address : t2C3AngularApp.Address;

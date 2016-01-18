@@ -1,4 +1,6 @@
 /// <reference path="../app.ts" />
+/// <reference path="../pojos/customer.ts" />
+/// <reference path="../pojos/token.ts" />
 'use strict';
 module t2C3AngularApp {
   export class UserService {
@@ -21,7 +23,7 @@ module t2C3AngularApp {
 
     public login(responsedata) {
       this._customer = responsedata.username;
-      this._securityToken = new t2C3AngularApp.Token();
+      this._securityToken = new t2C3AngularApp.Token;
 
       this._securityToken.setValue(responsedata.value);
       console.log(this._customer);
@@ -34,11 +36,11 @@ module t2C3AngularApp {
     }
 
     public isLoggedIn() {
-      return !(this._securityToken == null);
+      return !(this._securityToken === null);
     }
   }
 }
 
 angular.module('t2C3AngularApp')
-  .service('UserService', t2C3AngularApp.UserService);
+  .service('userService', t2C3AngularApp.UserService);
 
