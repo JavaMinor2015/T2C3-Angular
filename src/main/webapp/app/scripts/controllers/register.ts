@@ -28,7 +28,7 @@ angular.module('t2C3AngularApp')
             $scope.errorResonseText = ""; // Clear error response on success
             $location.path('/login');
           },
-          function (response) {
+          function errorCallback(response) {
             console.log("Registration error response:");
             console.log(response);
             $scope.errorResonseText = response.statusText; // Sets / shows error response text to user
