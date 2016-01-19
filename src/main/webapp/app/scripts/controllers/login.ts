@@ -16,6 +16,11 @@ angular.module('t2C3AngularApp')
             console.log(response.data);
             userService.login(response.data);
             $location.path('/');
+          },
+          function (response) {
+            console.log("Login error (" + response.status + ") response:");
+            console.log(response);
+            $scope.errorResonseText = response.statusText; // Sets / shows error response text to user
           }
         );
       };
@@ -28,6 +33,7 @@ angular.module('t2C3AngularApp')
         console.log(userService.getSecurityToken());
         $http.post('http://localhost:6789/logout', userService.getSecurityToken()).error(function(response){
           // On Error
+          console.log("Logout error (" + response.status + ") response:");
           console.log(response);
         });
         // Logout locally

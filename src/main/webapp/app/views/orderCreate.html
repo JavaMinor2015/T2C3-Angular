@@ -29,7 +29,7 @@
              required ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
       <div class="invalidWarning" ng-show="orderForm.zipcode.$invalid && orderForm.zipcode.$touched">Invalid zipcode!</div>
     </div>
-    <span ng-show="orderForm.$error.required">Required fields not filled in yet.</span>
+    <div ng-show="orderForm.$error.required">Required fields not filled in yet.</div>
     <br>
     <button name="orderButton" ng-disabled="orderForm.$invalid"  type="button" class="btn btn-default" ng-click="placeOrder()">Place order</button>
   </form>
