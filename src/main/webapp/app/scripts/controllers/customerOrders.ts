@@ -11,7 +11,7 @@
  */
 angular.module('t2C3AngularApp')
   .controller('CustomerOrderCtrl',
-    ['$scope', 'customerOrderResource', 'orderResource', 'UserService',
+    ['$scope', 'customerOrderResource', 'orderResource', 'userService',
       function ($scope, customerOrderResource, orderResource, userService) {
 
       $scope.orders = customerOrderResource.get({id: userService.getCustomer().id});
