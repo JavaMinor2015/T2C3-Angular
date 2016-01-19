@@ -6,7 +6,6 @@
 angular.module('t2C3AngularApp')
   .controller('RegisterCtrl', ['$scope', 'userService', '$http', '$location'
     , function ($scope, userService, $http, $location) {
-      $scope.errorResonseText = ""; // The resonse text sent by the server
       $scope.registerCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
         // without rewriting this as a typescript controller with all troubles it comes with.
@@ -29,13 +28,10 @@ angular.module('t2C3AngularApp')
             $scope.errorResonseText = ""; // Clear error response on success
             $location.path('/login');
           },
-          function (response) {
+          function errorCallback(response) {
             console.log("Registration error response:");
             console.log(response);
-            $scope.errorResonseText = response.statusText; // Sets / shows error response text to user
-            if (response.status === 409) {
-              console.log("409 User already exists? statusText=" + response.statusText);
-            }
+            $scope.errorResonseText = response.data.message; // Sets / shows error response text to user
           }
         );
       };

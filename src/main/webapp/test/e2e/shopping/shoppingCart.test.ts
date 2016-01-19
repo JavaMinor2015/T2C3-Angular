@@ -179,7 +179,7 @@ module e2e {
     private zipcode = "1234AB";
 
     private getPlaceOrderButton(){
-      return element(by.css('button[name=orderButton]'));
+      return element(by.id('submit'));
     }
 
     public fillInDefaultUserOrderInformation(){

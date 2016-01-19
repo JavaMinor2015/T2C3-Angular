@@ -18,6 +18,11 @@ angular.module('t2C3AngularApp')
             let tokenValueKey = 'tokenValue';
             $http.defaults.headers.common[tokenValueKey] = response.data.value;
             $location.path('/');
+          },
+          function (response) {
+            console.log("Login error (" + response.status + ") response:");
+            console.log(response);
+            $scope.errorResonseText = response.data.message; // Sets / shows error response text to user
           }
         );
       };
@@ -30,6 +35,7 @@ angular.module('t2C3AngularApp')
         console.log(userService.getSecurityToken());
         $http.post('http://localhost:6789/logout', userService.getSecurityToken()).error(function (response) {
           // On Error
+          console.log("Logout error (" + response.status + ") response:");
           console.log(response);
         });
         let tokenValueKey = 'tokenValue';

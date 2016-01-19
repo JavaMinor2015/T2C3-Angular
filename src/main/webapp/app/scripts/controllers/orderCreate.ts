@@ -19,18 +19,17 @@ angular.module('t2C3AngularApp')
         let customer : t2C3AngularApp.Customer;
         customer = userService.getCustomer();
         let address : t2C3AngularApp.Address;
-        address = customer.address;
-        $scope.firstName = customer.firstName;
-        $scope.lastName = customer.lastName;
-        $scope.emailAddress = customer.emailAddress;
+        address = customer.getAddress();
+        $scope.firstName = customer.getFirstName();
+        $scope.lastName = customer.getLastName();
+        $scope.emailAddress = customer.getEmail();
         if (address) {
-          $scope.street = address.street;
-          $scope.streetNumber = address.streetNumber;
-          $scope.city = address.city;
-          $scope.zipcode = address.zipcode;
+          $scope.street = address.getStreet();
+          $scope.streetNumber = address.getStreetNumber();
+          $scope.city = address.getCity();
+          $scope.zipcode = address.getZipcode();
         }
       }
-
 
       $scope.placeOrder = function () {
         console.log('clicked order');
@@ -55,8 +54,11 @@ angular.module('t2C3AngularApp')
         orderService.placeOrder(userInfo);
         orderService.orderrequest.order = orderService.order;
         orderService.orderrequest.token = userService.getSecurityToken();
-        orderResource.save(orderService.orderrequest, function success() {
+        orderResource.save(orderService.orderrequest, function success(response) {
           shoppingCartService.clearCart();
+        }, function error(response){
+          console.log('Place order exception error!');
+          $scope.errorResonseText = response.data.message;
         });
 
         // Navigate to thank you page
