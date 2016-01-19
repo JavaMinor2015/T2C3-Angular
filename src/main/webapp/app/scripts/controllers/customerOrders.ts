@@ -1,6 +1,5 @@
 /// <reference path="../app.ts" />
 /// <reference path="../pojos/customer.ts"/>
-/// <reference path="../services/userService.ts"/>
 'use strict';
 /**
  * @ngdoc function
@@ -13,7 +12,6 @@ angular.module('t2C3AngularApp')
   .controller('CustomerOrderCtrl',
     ['$scope', 'customerOrderResource', 'orderResource', 'userService',
       function ($scope, customerOrderResource, orderResource, userService) {
-
         $scope.orders = customerOrderResource.get({id: userService.getCustomer().id});
         let editModeOrderId = null;
 

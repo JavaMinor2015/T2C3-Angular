@@ -11,6 +11,9 @@ module t2C3AngularApp {
     public emailAddress : string;
     public credentials : t2C3AngularApp.Credentials;
 
+    public setId(value : number){
+      this.id = value;
+    }
 
     public setEmail(value : string) {
       this.emailAddress = value;

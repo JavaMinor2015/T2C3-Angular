@@ -25,6 +25,7 @@ module t2C3AngularApp {
       let data = responsedata.customer;
       console.log('response customer object:');
       console.log(data);
+      customer.setId(data.id);
       if (data.address) {
         customer.setAddress(data.address);
       }
