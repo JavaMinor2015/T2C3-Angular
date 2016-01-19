@@ -13,7 +13,7 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService', 'shoppingCartService'
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'userService', 'shoppingCartService'
     , function ($scope, orderService, $location, orderResource, userService, shoppingCartService) {
       if (userService.isLoggedIn()) {
         let customer:t2C3AngularApp.Customer;

@@ -5,8 +5,7 @@
 module t2C3AngularApp {
   export class UserService {
     private _customer : t2C3AngularApp.Customer;
-    private _securityToken : t2C3AngularApp.Token;
-
+    private _securityToken : t2C3AngularApp.Token = null;
 
     public getUsername() : string {
       return this._customer.getCredentials().getUsername();
@@ -16,15 +15,13 @@ module t2C3AngularApp {
       return this._customer;
     }
 
-
     public getSecurityToken() : t2C3AngularApp.Token {
       return this._securityToken;
     }
 
     public login(responsedata) {
-
       this._customer = responsedata.customer;
-      this._securityToken = new t2C3AngularApp.Token();
+      this._securityToken = new t2C3AngularApp.Token;
 
       this._securityToken.setValue(responsedata.value);
 
@@ -38,11 +35,13 @@ module t2C3AngularApp {
     }
 
     public isLoggedIn() {
-      return !(this._securityToken == null);
+      // This function is called an absurd amount of times during login proces, check by logging here
+      //console.log(!(this._securityToken === null));
+      return !(this._securityToken === null);
     }
   }
 }
 
 angular.module('t2C3AngularApp')
-  .service('UserService', t2C3AngularApp.UserService);
+  .service('userService', t2C3AngularApp.UserService);
 

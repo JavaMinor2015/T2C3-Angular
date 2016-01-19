@@ -2,7 +2,7 @@
 /// <reference path="../pojos/credentials.ts" />
 'use strict';
 angular.module('t2C3AngularApp')
-  .controller('LoginCtrl', ['$scope', 'UserService', '$http', '$location'
+  .controller('LoginCtrl', ['$scope', 'userService', '$http', '$location'
     , function ($scope, userService, $http, $location) {
       $scope.loginCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
@@ -13,7 +13,7 @@ angular.module('t2C3AngularApp')
 
         $http.post('http://localhost:6789/login', credentials).then(function successCallback (response) {
             response.data.username = credentials.getUsername();
-            console.log(response.data.username);
+            console.log(response.data);
             userService.login(response.data);
             $http.defaults.headers.common['tokenValue']= response.data.value;
             $location.path('/');
