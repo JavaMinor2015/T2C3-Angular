@@ -6,8 +6,8 @@
 /// <reference path="../services/userService.ts"/>
 'use strict';
 angular.module('t2C3AngularApp')
-  .controller('EditCustomerCtrl', ['$scope','$location', 'userService','customerResource'
-    , function ($scope,$location, userService, customerResource) {
+  .controller('EditCustomerCtrl', ['$scope', '$location', 'userService', 'customerResource'
+    , function ($scope, $location, userService, customerResource) {
 
       let customer : t2C3AngularApp.Customer;
       customer = userService.getCustomer();
@@ -21,7 +21,7 @@ angular.module('t2C3AngularApp')
         $scope.streetNumber = address.streetNumber;
         $scope.city = address.city;
         $scope.zipcode = address.zipcode;
-      } else{
+      } else {
         address = new t2C3AngularApp.Address();
       }
 
@@ -31,19 +31,19 @@ angular.module('t2C3AngularApp')
         // without rewriting this as a typescript controller with all troubles it comes with.
         console.log("update Customer");
 
-        customer.firstName= this.firstName;
-        customer.lastName=this.lastName;
+        customer.firstName = this.firstName;
+        customer.lastName = this.lastName;
         address.street = this.street;
-        address.streetNumber =this.streetNumber;
-        address.city=this.city;
-        address.zipcode=this.zipcode;
+        address.streetNumber = this.streetNumber;
+        address.city = this.city;
+        address.zipcode = this.zipcode;
         //console.log(this.address);
         customer.address = address;
-        customer.emailAddress =this.emailAddress;
+        customer.emailAddress = this.emailAddress;
         // Pass userInfo object to orderService
-        customerResource.update({id: customer.id},customer);
+        customerResource.update({id: customer.id}, customer);
       };
-      $scope.editPassword= function(){
-       $location.path('/password');
-      }
+      $scope.editPassword = function () {
+        $location.path('/password');
+      };
     }]);

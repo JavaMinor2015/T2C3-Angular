@@ -5,8 +5,8 @@ let customerResource = angular.module('customerResource', ['ngResource']);
 
 customerResource.factory('customerResource', ['$resource',
   function ($resource) {
-    return $resource('http://localhost:6789/customers/:id',{},
-    {
-      'update': { method:'PUT' }
-    });
+    return $resource('http://localhost:6789/customers/:id', {},
+      {
+        'update': {method: 'PUT'}
+      });
   }]);

@@ -6,8 +6,8 @@
 /// <reference path="../pojos/address.ts"/>
 
 angular.module('t2C3AngularApp')
-  .controller('EditPasswordCtrl', ['$scope', 'userService','customerCredentialResource',
-    function ($scope, userService,customerCredentialResource) {
+  .controller('EditPasswordCtrl', ['$scope', 'userService', 'customerCredentialResource',
+    function ($scope, userService, customerCredentialResource) {
 
       let customer : t2C3AngularApp.Customer;
       customer = userService.getCustomer();
@@ -15,8 +15,11 @@ angular.module('t2C3AngularApp')
 
 
       $scope.updatePassword = function () {
-        customerCredentialResource.update({id: customer.id},{username:customer.username,password:$scope.newPassword});
+        customerCredentialResource.update({id: customer.id}, {
+          username: customer.username,
+          password: $scope.newPassword
+        });
         console.log("updatePassword");
-        };
+      };
 
     }]);

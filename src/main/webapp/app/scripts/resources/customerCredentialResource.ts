@@ -5,8 +5,8 @@ let customerCredentialResource = angular.module('customerCredentialResource', ['
 
 customerCredentialResource.factory('customerCredentialResource', ['$resource',
   function ($resource) {
-    return $resource('http://localhost:6789/customers/:id/credentials',{},
+    return $resource('http://localhost:6789/customers/:id/credentials', {},
       {
-        'update': { method:'PUT' }
+        'update': {method: 'PUT'}
       });
   }]);
