@@ -2,7 +2,7 @@
 /// <reference path="../pojos/credentials.ts" />
 'use strict';
 angular.module('t2C3AngularApp')
-  .controller('LoginCtrl', ['$scope', 'UserService', '$http', '$location'
+  .controller('LoginCtrl', ['$scope', 'userService', '$http', '$location'
     , function ($scope, userService, $http, $location) {
       $scope.loginCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
@@ -11,11 +11,18 @@ angular.module('t2C3AngularApp')
         credentials.setUsername(this.username);
         credentials.setPassword(this.password);
 
-        $http.post('http://localhost:6789/login', credentials).then(function successCallback (response) {
+        $http.post('http://localhost:6789/login', credentials).then(function successCallback(response) {
             response.data.username = credentials.getUsername();
-            console.log(response.data.username);
+            console.log(response.data);
             userService.login(response.data);
+            let tokenValueKey = 'tokenValue';
+            $http.defaults.headers.common[tokenValueKey] = response.data.value;
             $location.path('/');
+          },
+          function (response) {
+            console.log("Login error (" + response.status + ") response:");
+            console.log(response);
+            $scope.errorResonseText = response.statusText; // Sets / shows error response text to user
           }
         );
       };
@@ -26,11 +33,13 @@ angular.module('t2C3AngularApp')
 
       $scope.logOut = function () {
         console.log(userService.getSecurityToken());
-        $http.post('http://localhost:6789/logout', userService.getSecurityToken()).error(function(response){
+        $http.post('http://localhost:6789/logout', userService.getSecurityToken()).error(function (response) {
           // On Error
+          console.log("Logout error (" + response.status + ") response:");
           console.log(response);
         });
-        // Logout locally
+        let tokenValueKey = 'tokenValue';
+        $http.defaults.headers.common[tokenValueKey] = null;
         userService.logout();
       };
     }]);

@@ -1,0 +1,37 @@
+<table ng-controller="CustomerOrderCtrl" class="table">
+  <th>Id</th>
+  <th>Status</th>
+  <th>Items</th>
+  <th>Address</th>
+  <th>Prijs</th>
+
+  <th></th>
+  <tr ng-repeat="order in orders">
+    <form name="orderForm">
+    <td>{{ order.id }}</td>
+    <td>{{ order.status }}</td>
+    <td>
+      <li ng-repeat="item in order.items">
+        {{item.product.name}} Amount: {{ item.amount }}
+      </li></td>
+    <td>    <input ng-show="isEditMode(order)" type="text" name="firstName" class="form-control"  required ng-model="order.customerData.firstName">
+      <input ng-show="isEditMode(order)" type="text" name="lastName" class="form-control"  required ng-model="order.customerData.lastName">
+      <input ng-show="isEditMode(order)" type="text" name="street" class="form-control"  required ng-model="order.customerData.address.street">
+      <input ng-show="isEditMode(order)" type="text" name="streetNumber" class="form-control"  required ng-model="order.customerData.address.streetNumber">
+      <input ng-show="isEditMode(order)" type="text" name="zipcode" class="form-control"  required ng-model="order.customerData.address.zipcode">
+      <input ng-show="isEditMode(order)" type="text" name="city" class="form-control"  required ng-model="order.customerData.address.city">
+      <div ng-hide="isEditMode(order)">
+        {{ order.customerData.firstName }} {{ order.customerData.lastName }}<br>
+        {{ order.customerData.address.street }} {{ order.customerData.address.streetNumber }}<br>
+        {{ order.customerData.address.zipcode }}, {{ order.customerData.address.city }}
+      </div>
+    </td>
+    <td>{{ order.totalPrice}}</td>
+    <td>
+      <button ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
+      <button ng-hide="isEditMode(order)" class="btn" ng-click="editAddress(order)">Edit OrderAddress</button>
+      <button ng-hide="isEditMode(order)" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
+    </td>
+    </form>
+  </tr>
+</table>

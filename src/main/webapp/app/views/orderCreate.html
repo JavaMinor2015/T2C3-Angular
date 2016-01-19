@@ -2,35 +2,38 @@
   <h4>Order form</h4>
   <br>
 
-  <form name="orderForm" ng-submit="placeOrder()" ng-controller="OrderCtrl">
+  <form name="orderForm" ng-submit="placeOrder()">
 
     <div class="input-group" >
 
+      <input type="text" name="firstName" class="form-control" placeholder="Firstname" ng-model="firstName"
+             required ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
+      <div class="invalidWarning" ng-show="orderForm.firstName.$invalid && orderForm.firstName.$touched">Too short</div>
 
-      <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
-      <br>
+      <input type="text" name="lastName" class="form-control" placeholder="Lastname" required ng-model="lastName"
+             required ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
+      <div class="invalidWarning" ng-show="orderForm.lastName.$invalid && orderForm.lastName.$touched">Too short</div>
 
-      <input type="text" name="lastName" class="form-control" placeholder="Achternaam" required ng-model="lastName">
-      <br>
+      <input type="email" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
+      <div class="invalidWarning" ng-show="orderForm.email.$invalid">Invalid email!</div>
 
-      <input type="text" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
-      <br>
+      <input type="text" name="street" class="form-control" placeholder="Street name" ng-model="street"
+             required ng-minlenght="2" ng-pattern="/^[a-zA-Z\s]*$/">
 
-      <input type="text" name="street" class="form-control" placeholder="Straatnaam" ng-model="street">
-      <input type="text" name="streetNumber" class="form-control" placeholder="Straatnummer" ng-model="streetNumber">
-      <br>
+      <input type="text" name="streetNumber" class="form-control" placeholder="Street number" ng-model="streetNumber"
+             required ng-pattern="/^[1-9]+[0-9]*\s?[a-zA-Z]?$/"> <!--Pattern allows numbers ending on an optional letter-->
+      <div class="invalidWarning" ng-show="orderForm.streetNumber.$invalid && orderForm.streetNumber.$touched">Invalid street number</div>
 
-      <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
-      <br>
+      <input type="text" name="city" class="form-control" placeholder="City" ng-model="city"
+             required ng-pattern="/^[a-zA-Z\s]*$/"> <!--Pattern allows only letters and spaces-->
 
-      <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
-      <br>
-      <!--<span>{{firstName}}</span>-->
-
+      <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model="zipcode"
+             required ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
+      <div class="invalidWarning" ng-show="orderForm.zipcode.$invalid && orderForm.zipcode.$touched">Invalid zipcode!</div>
     </div>
-
     <br>
-    <input type="submit" id="submit" value="Plaats Order!" />
-
+    <div ng-show="orderForm.$error.required">Required fields not filled in yet.</div>
+    <input ng-disabled="orderForm.$invalid" type="submit" id="submit" value="Plaats Order!" />
   </form>
+  <br>
 </div>

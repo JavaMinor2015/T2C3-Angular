@@ -15,8 +15,9 @@ declare module "log4js" {
    * @returns {Logger} instance of logger for the category
    * @static
    */
-  export function getLogger(categoryName?: string): Logger;
-  export function getBufferedLogger(categoryName?: string): Logger;
+  export function getLogger(categoryName? : string) : Logger;
+
+  export function getBufferedLogger(categoryName? : string) : Logger;
 
   /**
    * Has a logger instance cached on categoryName.
@@ -25,7 +26,7 @@ declare module "log4js" {
    * @returns {boolean} contains logger for the category
    * @static
    */
-  export function hasLogger(categoryName: string): boolean;
+  export function hasLogger(categoryName : string) : boolean;
 
   /**
    * Get the default logger instance.
@@ -33,7 +34,7 @@ declare module "log4js" {
    * @returns {Logger} instance of default logger
    * @static
    */
-  export function getDefaultLogger(): Logger;
+  export function getDefaultLogger() : Logger;
 
   /**
    * args are appender, then zero or more categories
@@ -42,7 +43,7 @@ declare module "log4js" {
    * @returns {void}
    * @static
    */
-  export function addAppender(...appenders: any[]): void;
+  export function addAppender(...appenders : any[]) : void;
 
   /**
    * Claer configured appenders
@@ -50,7 +51,7 @@ declare module "log4js" {
    * @returns {void}
    * @static
    */
-  export function clearAppenders(): void;
+  export function clearAppenders() : void;
 
   /**
    * Shutdown all log appenders. This will first disable all writing to appenders
@@ -61,13 +62,13 @@ declare module "log4js" {
    *  as the first argument.
    * @returns {void}
    */
-  export function shutdown(cb: Function): void;
+  export function shutdown(cb : Function) : void;
 
-  export function configure(filename: string, options?: any): void;
-  export function configure(config: IConfig, options?: any): void;
+  export function configure(filename : string, options? : any) : void;
+  export function configure(config : IConfig, options? : any) : void;
 
-  export function setGlobalLogLevel(level: string): void;
-  export function setGlobalLogLevel(level: Level): void;
+  export function setGlobalLogLevel(level : string) : void;
+  export function setGlobalLogLevel(level : Level) : void;
 
 
   /**
@@ -77,12 +78,12 @@ declare module "log4js" {
    * @returns {express.Handler} Instance of middleware.
    * @static
    */
-  export function connectLogger(logger: Logger, options: { format?: string; level?: string; nolog?: any; }): express.Handler;
-  export function connectLogger(logger: Logger, options: { format?: string; level?: Level; nolog?: any; }): express.Handler;
+  export function connectLogger(logger : Logger, options : { format?: string; level?: string; nolog?: any; }) : express.Handler;
+  export function connectLogger(logger : Logger, options : { format?: string; level?: Level; nolog?: any; }) : express.Handler;
 
 
-  export var appenders: any;
-  export var levels: {
+  export var appenders : any;
+  export var levels : {
     ALL: Level;
     TRACE: Level;
     DEBUG: Level;
@@ -92,15 +93,15 @@ declare module "log4js" {
     FATAL: Level;
     OFF: Level;
 
-    toLevel(level: string, defaultLevel?: Level): Level;
-    toLevel(level: Level, defaultLevel?: Level): Level;
+    toLevel(level : string, defaultLevel? : Level): Level;
+    toLevel(level : Level, defaultLevel? : Level): Level;
   };
 
   export interface Logger {
-    setLevel(level: string): void;
-    setLevel(level: Level): void;
+    setLevel(level : string): void;
+    setLevel(level : Level): void;
 
-    isLevelEnabled(level: Level): boolean;
+    isLevelEnabled(level : Level): boolean;
     isTraceEnabled(): boolean;
     isDebugEnabled(): boolean;
     isInfoEnabled(): boolean;
@@ -108,21 +109,21 @@ declare module "log4js" {
     isErrorEnabled(): boolean;
     isFatalEnabled(): boolean;
 
-    trace(message: string, ...args: any[]): void;
-    debug(message: string, ...args: any[]): void;
-    info(message: string, ...args: any[]): void;
-    warn(message: string, ...args: any[]): void;
-    error(message: string, ...args: any[]): void;
-    fatal(message: string, ...args: any[]): void;
+    trace(message : string, ...args : any[]): void;
+    debug(message : string, ...args : any[]): void;
+    info(message : string, ...args : any[]): void;
+    warn(message : string, ...args : any[]): void;
+    error(message : string, ...args : any[]): void;
+    fatal(message : string, ...args : any[]): void;
   }
 
   export interface Level {
-    isEqualTo(other: string): boolean;
-    isEqualTo(otherLevel: Level): boolean;
-    isLessThanOrEqualTo(other: string): boolean;
-    isLessThanOrEqualTo(otherLevel: Level): boolean;
-    isGreaterThanOrEqualTo(other: string): boolean;
-    isGreaterThanOrEqualTo(otherLevel: Level): boolean;
+    isEqualTo(other : string): boolean;
+    isEqualTo(otherLevel : Level): boolean;
+    isLessThanOrEqualTo(other : string): boolean;
+    isLessThanOrEqualTo(otherLevel : Level): boolean;
+    isGreaterThanOrEqualTo(other : string): boolean;
+    isGreaterThanOrEqualTo(otherLevel : Level): boolean;
   }
 
   export interface IConfig {
@@ -136,8 +137,9 @@ declare module "log4js" {
     category?: string;
   }
 
-  export interface ConsoleAppenderConfig extends AppenderConfigBase {}
-  
+  export interface ConsoleAppenderConfig extends AppenderConfigBase {
+  }
+
   export interface FileAppenderConfig extends AppenderConfigBase {
     filename: string;
   }
@@ -156,31 +158,31 @@ declare module "log4js" {
     pattern: string;
     alwaysIncludePattern: boolean;
   }
-  
+
   export interface SmtpAppenderConfig extends AppenderConfigBase {
     /** Comma separated list of email recipients */
     recipients: string;
-    
+
     /** Sender of all emails (defaults to transport user) */
     sender: string;
-    
+
     /** Subject of all email messages (defaults to first event's message)*/
     subject: string;
-    
+
     /**
      * The time in seconds between sending attempts (defaults to 0).
      * All events are buffered and sent in one email during this time.
      * If 0 then every event sends an email
      */
     sendInterval: number;
-    
+
     SMTP: {
       host: string;
       secure: boolean;
       port: number;
       auth: {
-          user: string;
-          pass: string;
+        user: string;
+        pass: string;
       }
     }
   }
@@ -190,14 +192,14 @@ declare module "log4js" {
     backup: number;
     pollInterval: number;
   }
-  
+
   export interface GelfAppenderConfig extends AppenderConfigBase {
     host: string;
     hostname: string;
     port: string;
     facility: string;
   }
-  
+
   export interface MultiprocessAppenderConfig extends AppenderConfigBase {
     mode: string;
     loggerPort: number;
@@ -205,35 +207,35 @@ declare module "log4js" {
     facility: string;
     appender?: AppenderConfig;
   }
-  
+
   export interface LogglyAppenderConfig extends AppenderConfigBase {
     /** Loggly customer token - https://www.loggly.com/docs/api-sending-data/ */
     token: string;
-    
+
     /** Loggly customer subdomain (use 'abc' for abc.loggly.com) */
     subdomain: string;
-    
+
     /** an array of strings to help segment your data & narrow down search results in Loggly */
     tags: string[];
-    
+
     /** Enable JSON logging by setting to 'true' */
     json: boolean;
   }
-  
+
   export interface ClusteredAppenderConfig extends AppenderConfigBase {
     appenders?: AppenderConfig[];
   }
-  
+
   type CoreAppenderConfig = ConsoleAppenderConfig
-                          | FileAppenderConfig
-                          | DateFileAppenderConfig
-                          | SmtpAppenderConfig
-                          | HookIoAppenderConfig
-                          | GelfAppenderConfig
-                          | MultiprocessAppenderConfig
-                          | LogglyAppenderConfig
-                          | ClusteredAppenderConfig
-    
+    | FileAppenderConfig
+    | DateFileAppenderConfig
+    | SmtpAppenderConfig
+    | HookIoAppenderConfig
+    | GelfAppenderConfig
+    | MultiprocessAppenderConfig
+    | LogglyAppenderConfig
+    | ClusteredAppenderConfig
+
   interface CustomAppenderConfig extends AppenderConfigBase {
     [prop: string]: any;
   }
