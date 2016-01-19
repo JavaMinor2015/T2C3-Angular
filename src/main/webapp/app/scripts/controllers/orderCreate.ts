@@ -21,6 +21,7 @@ angular.module('t2C3AngularApp')
         let address : t2C3AngularApp.Address;
         address = customer.getAddress();
         $scope.firstName = customer.getFirstName();
+        console.log($scope.firstName);
         $scope.lastName = customer.getLastName();
         $scope.emailAddress = customer.getEmail();
         if (address) {
