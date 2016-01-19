@@ -2,11 +2,11 @@
   <h4>Register Form</h4>
   <br>
 
-  <form name="registerForm" ng-submit="registerCustomer()" ng-controller="RegisterCtrl">
+  <form name="registerForm" ng-submit="registerCustomer()">
     <div class="input-group">
       <input type="text" name="username" class="form-control" placeholder="Username" ng-model="username"
              required ng-minlength="2">
-      <span class="invalidWarning" ng-show="registerForm.username.$invalid && registerForm.username.$touched">Too short</span>
+      <div class="invalidWarning" ng-show="registerForm.username.$invalid && registerForm.username.$touched">Too short</div>
 
       <input type="password" name="password" class="form-control" placeholder="Password"
              required ng-model="password">
@@ -23,25 +23,22 @@
       <div class="invalidWarning" ng-show="registerForm.email.$invalid">Invalid email!</div>
 
       <input type="text" name="street" class="form-control" placeholder="Street name" ng-model="street"
-             required ng-pattern="/^[a-zA-Z\s]*$/">
+              ng-minlenght="2" ng-pattern="/^[a-zA-Z\s]*$/">
 
-      <input type="number" name="streetNumber" class="form-control" placeholder="Street number" ng-model="streetNumber"
-             required ng-min="1">
+      <input type="text" name="streetNumber" class="form-control" placeholder="Street number" ng-model="streetNumber"
+              ng-pattern="/^[1-9]+[0-9]*\s?[a-zA-Z]?$/"> <!--Pattern allows numbers ending on an optional letter-->
       <div class="invalidWarning" ng-show="registerForm.streetNumber.$invalid && registerForm.streetNumber.$touched">Invalid street number</div>
 
       <input type="text" name="city" class="form-control" placeholder="City" ng-model="city"
-             required ng-pattern="/^[a-zA-Z\s]*$/"> <!--Pattern allows only letters and spaces-->
+              ng-pattern="/^[a-zA-Z\s]*$/"> <!--Pattern allows only letters and spaces-->
 
-      <br>
-       <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model="zipcode"
-             required ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
-      <div class="invalidWarning" ng-show="registerForm.zipcode.$invalid && registerForm.lastName.$touched">Invalid zipcode!</div>
-
+      <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model="zipcode"
+              ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
+      <div class="invalidWarning" ng-show="registerForm.zipcode.$invalid && registerForm.zipcode.$touched">Invalid zipcode!</div>
     </div>
     <div ng-show="registerForm.$error.required">Required fields not filled in yet.</div>
     <div class="invalidWarning">{{errorResonseText}}</div>
-    <input type="submit" ng-disabled="registerForm.$invalid" id="submit" value="Registreer!" />
-
+    <input type="submit" ng-disabled="registerForm.$invalid" class="btn btn-default" id="submit" value="Registreer!" />
   </form>
   <br>
 </div>

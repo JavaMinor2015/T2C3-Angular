@@ -19,12 +19,12 @@ angular.module('t2C3AngularApp')
         let customer : t2C3AngularApp.Customer;
         customer = userService.getCustomer();
         let address : t2C3AngularApp.Address;
-        address = customer.address;
-        $scope.firstName = customer.firstName;
-        $scope.lastName = customer.lastName;
-        $scope.emailAddress = customer.emailAddress;
+        address = customer.getAddress();
+        $scope.firstName = customer.getFirstName();
+        console.log($scope.firstName);
+        $scope.lastName = customer.getLastName();
+        $scope.emailAddress = customer.getEmail();
         if (address) {
-          console.log("test");
           $scope.street = address.street;
           $scope.streetNumber = address.streetNumber;
           $scope.city = address.city;

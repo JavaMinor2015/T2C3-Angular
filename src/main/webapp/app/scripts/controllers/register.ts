@@ -6,7 +6,6 @@
 angular.module('t2C3AngularApp')
   .controller('RegisterCtrl', ['$scope', 'userService', '$http', '$location'
     , function ($scope, userService, $http, $location) {
-      $scope.errorResonseText = ""; // The resonse text sent by the server
       $scope.registerCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
         // without rewriting this as a typescript controller with all troubles it comes with.
