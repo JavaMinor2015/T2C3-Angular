@@ -33,7 +33,8 @@
     </div>
     <br>
     <div ng-show="orderForm.$error.required">Required fields not filled in yet.</div>
-    <input ng-disabled="orderForm.$invalid" type="submit" id="submit" value="Plaats Order!" />
+    <div class="invalidWarning">{{errorResonseText}}</div>
+    <input ng-disabled="orderForm.$invalid" type="submit" id="submit" value="Plaats Order!" class="btn btn-default" />
   </form>
   <br>
 </div>
