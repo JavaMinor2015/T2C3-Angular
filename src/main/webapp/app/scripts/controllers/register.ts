@@ -31,10 +31,7 @@ angular.module('t2C3AngularApp')
           function errorCallback(response) {
             console.log("Registration error response:");
             console.log(response);
-            $scope.errorResonseText = response.statusText; // Sets / shows error response text to user
-            if (response.status === 409) {
-              console.log("409 User already exists? statusText=" + response.statusText);
-            }
+            $scope.errorResonseText = response.data.message; // Sets / shows error response text to user
           }
         );
       };
