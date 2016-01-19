@@ -4,21 +4,21 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module 'karma' {
-    // See Karma public API https://karma-runner.github.io/0.12/dev/public-api.html
+  // See Karma public API https://karma-runner.github.io/0.12/dev/public-api.html
 
-    interface IKarmaServer {
-        start(options?: any, callback?: (exitCode: number) => void): void;
-    }
+  interface IKarmaServer {
+    start(options? : any, callback? : (exitCode : number) => void): void;
+  }
 
-    interface IKarmaRunner {
-        run(options?: any, callback?: (exitCode: number) => void): void;
-    }
+  interface IKarmaRunner {
+    run(options? : any, callback? : (exitCode : number) => void): void;
+  }
 
-    interface IKarma {
-        server: IKarmaServer;
-        runner: IKarmaRunner;
-    }
+  interface IKarma {
+    server: IKarmaServer;
+    runner: IKarmaRunner;
+  }
 
-    var karma: IKarma;
-    export = karma;
+  var karma : IKarma;
+  export = karma;
 }

@@ -2,8 +2,10 @@
   <h4>Order form</h4>
   <br>
 
-  <form name="orderForm">
-    <div class="input-group">
+  <form name="orderForm" ng-submit="placeOrder()" ng-controller="OrderCtrl">
+
+    <div class="input-group" >
+
       <input type="text" name="firstName" class="form-control" placeholder="Firstname" ng-model="firstName"
              required ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
       <div class="invalidWarning" ng-show="orderForm.firstName.$invalid && orderForm.firstName.$touched">Too short</div>
@@ -31,8 +33,10 @@
 
     </div>
     <span ng-show="orderForm.$error.required">Required fields not filled in yet.</span>
+
     <br>
-    <button name="orderButton" ng-disabled="orderForm.$invalid"  type="button" class="btn btn-default" ng-click="placeOrder()">Place order</button>
+    <input ng-disabled="orderForm.$invalid" type="submit" id="submit" value="Plaats Order!" />
+
   </form>
   <br>
 </div>

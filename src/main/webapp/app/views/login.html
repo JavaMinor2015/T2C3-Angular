@@ -2,7 +2,7 @@
   <h4>Login Form</h4>
   <br>
 
-  <form name="loginForm">
+  <form name="loginForm" ng-submit="loginCustomer()" ng-controller="RegisterCtrl">
     <label>username</label>
     <input type="text" name="username"
            required ng-model="username">
@@ -11,6 +11,6 @@
     <input type="password" name="password"
            required ng-model="password">
     <br>
-    <button type="button" ng-click="loginCustomer()">Login!</button>
+    <input type="submit" id="submit" value="Login!" />
   </form>
 </div>

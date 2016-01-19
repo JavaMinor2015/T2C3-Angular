@@ -5,19 +5,19 @@ module t2C3AngularApp {
     private password : string;
 
 
- public getUsername() : string {
+    public getUsername() : string {
       return this.userName;
     }
 
- public setUsername(value : string) {
+    public setUsername(value : string) {
       this.userName = value;
     }
 
- public getPassword() : string {
+    public getPassword() : string {
       return this.password;
     }
 
-  public  setPassword(value : string) {
+    public  setPassword(value : string) {
       this.password = value;
     }
   }

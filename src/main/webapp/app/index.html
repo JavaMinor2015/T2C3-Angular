@@ -47,10 +47,12 @@
             <li><a ng-href="#/shoppingCart" class="glyphicon glyphicon-shopping-cart"> {{countCart()}}</a>
             </li>
           </div>
-          <li><a ng-href="#/register">Register</a></li>
+          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/register">Register</a></li>
           <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
-          <li><a ng-show="loggedIn()" ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
-        </ul>
+          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
+          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/myorders">Bestellingen</a></li>
+          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/account">Mijn Gegevens</a></li>
+     </ul>
       </div>
     </div>
   </div>
@@ -108,8 +110,12 @@
 <script src="scripts/controllers/catalog.js"></script>
 <script src="scripts/controllers/register.js"></script>
 <script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/customerOrders.js"></script>
+<script src="scripts/controllers/editCustomer.js"></script>
 <script src="scripts/resources/catalogResource.js"></script>
 <script src="scripts/resources/orderResource.js"></script>
+<script src="scripts/resources/customerOrderResource.js"></script>
+<script src="scripts/resources/customerResource.js"></script>
 <script src="scripts/services/shoppingCartService.js"></script>
 <script src="scripts/services/orderservice.js"></script>
 <script src="scripts/services/userService.js"></script>

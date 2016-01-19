@@ -3,18 +3,16 @@
 'use strict';
 module t2C3AngularApp {
   export class Customer {
-    private address : t2C3AngularApp.Address;
-    private firstName : string;
-    private lastName : string;
-    private email: string;
-    private credentials : t2C3AngularApp.Credentials;
+    public id : number;
+    public address : t2C3AngularApp.Address;
+    public firstName : string;
+    public lastName : string;
+    public emailAddress : string;
+    public credentials : t2C3AngularApp.Credentials;
 
-    public getEmail() {
-      return this.email;
-    }
 
     public setEmail(value : string) {
-      this.email = value;
+      this.emailAddress = value;
     }
 
     public getAddress() : t2C3AngularApp.Address {
@@ -39,6 +37,14 @@ module t2C3AngularApp {
 
     public setLastName(value : string) {
       this.lastName = value;
+    }
+
+    public getEmail() : string {
+      return this.emailAddress;
+    }
+
+    public setEmailAddress(value : string) {
+      this.emailAddress = value;
     }
 
     public getCredentials() : t2C3AngularApp.Credentials {
