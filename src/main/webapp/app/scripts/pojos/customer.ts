@@ -4,12 +4,16 @@
 module t2C3AngularApp {
   export class Customer {
     public id : number;
+    public username : string;
     public address : t2C3AngularApp.Address;
     public firstName : string;
     public lastName : string;
     public emailAddress : string;
     public credentials : t2C3AngularApp.Credentials;
 
+    public setId(value : number) {
+      this.id = value;
+    }
 
     public setEmail(value : string) {
       this.emailAddress = value;

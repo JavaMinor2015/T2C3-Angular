@@ -2,12 +2,12 @@
 /// <reference path="../pojos/order.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
 /// <reference path="../pojos/customer.ts"/>
-
 /// <reference path="../pojos/address.ts"/>
-
+/// <reference path="../services/userService.ts"/>
+'use strict';
 angular.module('t2C3AngularApp')
-  .controller('EditCustomerCtrl', ['$scope', 'UserService', 'customerResource'
-    , function ($scope, userService, customerResource) {
+  .controller('EditCustomerCtrl', ['$scope', '$location', 'userService', 'customerResource'
+    , function ($scope, $location, userService, customerResource) {
 
       let customer : t2C3AngularApp.Customer;
       customer = userService.getCustomer();
@@ -21,28 +21,29 @@ angular.module('t2C3AngularApp')
         $scope.streetNumber = address.streetNumber;
         $scope.city = address.city;
         $scope.zipcode = address.zipcode;
+      } else {
+        address = new t2C3AngularApp.Address();
       }
 
 
       $scope.updateCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
         // without rewriting this as a typescript controller with all troubles it comes with.
-        let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo();
+        console.log("update Customer");
 
-        userInfo.setFirstName(this.firstName);
-        userInfo.setLastName(this.lastName);
-        address.setStreet(this.street);
-        address.setStreetNumber(this.streetNumber);
-        address.setCity(this.city);
-        address.setZipcode(this.zipcode);
+        customer.firstName = this.firstName;
+        customer.lastName = this.lastName;
+        address.street = this.street;
+        address.streetNumber = this.streetNumber;
+        address.city = this.city;
+        address.zipcode = this.zipcode;
         //console.log(this.address);
-        userInfo.setAddress(address);
-        userInfo.setEmailAddress(this.emailAddress);
+        customer.address = address;
+        customer.emailAddress = this.emailAddress;
         // Pass userInfo object to orderService
-        customerResource.save(customer, function success(response) {
-          console.log(response);
-        });
-
-
+        customerResource.update({id: customer.id}, customer);
+      };
+      $scope.editPassword = function () {
+        $location.path('/password');
       };
     }]);

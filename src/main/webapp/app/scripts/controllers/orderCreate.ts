@@ -56,7 +56,7 @@ angular.module('t2C3AngularApp')
         orderService.orderrequest.token = userService.getSecurityToken();
         orderResource.save(orderService.orderrequest, function success(response) {
           shoppingCartService.clearCart();
-        }, function error(response){
+        }, function error(response) {
           console.log('Place order exception error!');
           $scope.errorResonseText = response.data.message;
         });

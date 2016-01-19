@@ -25,6 +25,7 @@ module t2C3AngularApp {
       let data = responsedata.customer;
       console.log('response customer object:');
       console.log(data);
+      customer.setId(data.id);
       if (data.address) {
         customer.setAddress(data.address);
       }
@@ -56,7 +57,7 @@ module t2C3AngularApp {
       this._customer = customer;
 
       this._securityToken = new t2C3AngularApp.Token;
-
+      this._customer.username = responsedata.username;
       this._securityToken.setValue(responsedata.value);
 
       console.log(this._customer);

@@ -20,7 +20,8 @@ angular
     'catalogResource',
     'orderResource',
     'customerOrderResource',
-    'customerResource'
+    'customerResource',
+    'customerCredentialResource'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -79,6 +80,11 @@ angular
         templateUrl: 'views/editCustomer.html',
         controller: 'EditCustomerCtrl',
         controllerAs: 'editCustomer'
+      })
+      .when('/password', {
+        templateUrl: 'views/editPassword.html',
+        controller: 'EditPasswordCtrl',
+        controllerAs: 'editPassword'
       })
       .otherwise({
         redirectTo: '/'
