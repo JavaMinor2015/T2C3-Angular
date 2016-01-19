@@ -5,7 +5,7 @@ let customerOrderResource = angular.module('customerOrderResource', ['ngResource
 
 customerOrderResource.factory('customerOrderResource', ['$resource',
   function ($resource) {
-    return $resource('http://localhost:6789/customers/:id/orders',{},{
+    return $resource('http://localhost:6789/customers/:id/orders', {}, {
       get: {method: 'GET', isArray: true}
     });
 

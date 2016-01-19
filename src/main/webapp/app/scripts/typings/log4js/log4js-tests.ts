@@ -30,13 +30,14 @@ logger.warn('Cheese is quite smelly.');
 logger.error('Cheese is too ripe!');
 logger.fatal('Cheese was breeding ground for listeria.');
 
-var cb = () => {};
+var cb = () => {
+};
 log4js.shutdown(cb);
 
 log4js.configure({
   appenders: [
-    { type: 'console' },
-    { type: 'file', filename: 'logs/cheese.log', category: 'cheese' }
+    {type: 'console'},
+    {type: 'file', filename: 'logs/cheese.log', category: 'cheese'}
   ]
 });
 
@@ -47,9 +48,9 @@ defaultLogger.debug('Got cheese.');
 import express = require('express');
 var app = express();
 app.configure(() => {
-  app.use(log4js.connectLogger(logger, { level: log4js.levels.INFO, format: ':method :url' }));
+  app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO, format: ':method :url'}));
 });
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.send('hello world');
 });
 app.listen(5000);
@@ -71,4 +72,4 @@ log4js.configure({
   }
 });
 
-log4js.configure('file.json', { reloadSecs: 300 });
+log4js.configure('file.json', {reloadSecs: 300});

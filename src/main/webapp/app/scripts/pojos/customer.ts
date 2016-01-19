@@ -3,17 +3,16 @@
 'use strict';
 module t2C3AngularApp {
   export class Customer {
-    public id: number;
+    public id : number;
     public address : t2C3AngularApp.Address;
     public firstName : string;
     public lastName : string;
-    public emailAddress: string;
+    public emailAddress : string;
     public credentials : t2C3AngularApp.Credentials;
 
 
-
     public setEmail(value : string) {
-      this.email = value;
+      this.emailAddress = value;
     }
 
     public getAddress() : t2C3AngularApp.Address {

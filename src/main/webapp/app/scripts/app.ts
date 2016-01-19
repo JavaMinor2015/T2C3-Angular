@@ -70,15 +70,15 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
-      .when('/myorders',{
-        templateUrl:'views/customerOrders.html',
+      .when('/myorders', {
+        templateUrl: 'views/customerOrders.html',
         controller: 'CustomerOrderCtrl',
-        controllerAs :'customerOrder'
+        controllerAs: 'customerOrder'
       })
-      .when('/account',{
-        templateUrl:'views/editCustomer.html',
+      .when('/account', {
+        templateUrl: 'views/editCustomer.html',
         controller: 'EditCustomerCtrl',
-        controllerAs :'editCustomer'
+        controllerAs: 'editCustomer'
       })
       .otherwise({
         redirectTo: '/'

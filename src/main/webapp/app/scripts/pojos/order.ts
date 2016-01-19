@@ -13,9 +13,8 @@ module t2C3AngularApp {
     public items : Array<any>;
     public customerData : UserInfo;
     public status : string;
-    public totalPrice: number;
+    public totalPrice : number;
     private token : Token;
-
 
 
     public setUserInfo(userInfo : UserInfo) {

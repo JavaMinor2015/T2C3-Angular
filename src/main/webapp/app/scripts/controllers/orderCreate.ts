@@ -16,9 +16,9 @@ angular.module('t2C3AngularApp')
   .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'userService', 'shoppingCartService'
     , function ($scope, orderService, $location, orderResource, userService, shoppingCartService) {
       if (userService.isLoggedIn()) {
-        let customer:t2C3AngularApp.Customer;
+        let customer : t2C3AngularApp.Customer;
         customer = userService.getCustomer();
-        let address:t2C3AngularApp.Address;
+        let address : t2C3AngularApp.Address;
         address = customer.address;
         $scope.firstName = customer.firstName;
         $scope.lastName = customer.lastName;

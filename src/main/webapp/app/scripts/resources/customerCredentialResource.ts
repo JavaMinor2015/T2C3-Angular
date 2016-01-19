@@ -1,13 +1,9 @@
 /// <reference path="../app.ts" />
 
 'use strict';
-let customerOrderResource = angular.module('customerOrderResource', ['ngResource']);
+let customerCredentialResource = angular.module('customerCredentialResource', ['ngResource']);
 
-customerOrderResource.factory('customerOrderResource', ['$resource',
+customerCredentialResource.factory('customerCredentialResource', ['$resource',
   function ($resource) {
-    return $resource('http://localhost:6789/customers/:id/orders',{},{
-      get: {method: 'GET', isArray: true}
-    });
-
-
+    return $resource('http://localhost:6789/customers/:id/credentials');
   }]);

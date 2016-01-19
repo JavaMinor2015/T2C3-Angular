@@ -9,27 +9,26 @@ angular.module('t2C3AngularApp')
   .controller('EditCustomerCtrl', ['$scope', 'UserService', 'customerResource'
     , function ($scope, userService, customerResource) {
 
-        let customer:t2C3AngularApp.Customer;
-        customer = userService.getCustomer();
-        let address:t2C3AngularApp.Address;
-        address = customer.address;
-        $scope.firstName = customer.firstName;
-        $scope.lastName = customer.lastName;
-        $scope.emailAddress = customer.emailAddress;
-        if (address) {
-          $scope.street = address.street;
-          $scope.streetNumber = address.streetNumber;
-          $scope.city = address.city;
-          $scope.zipcode = address.zipcode;
-        }
-
+      let customer : t2C3AngularApp.Customer;
+      customer = userService.getCustomer();
+      let address : t2C3AngularApp.Address;
+      address = customer.address;
+      $scope.firstName = customer.firstName;
+      $scope.lastName = customer.lastName;
+      $scope.emailAddress = customer.emailAddress;
+      if (address) {
+        $scope.street = address.street;
+        $scope.streetNumber = address.streetNumber;
+        $scope.city = address.city;
+        $scope.zipcode = address.zipcode;
+      }
 
 
       $scope.updateCustomer = function () {
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
         // without rewriting this as a typescript controller with all troubles it comes with.
         let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo();
-        let address : t2C3AngularApp.Address = new t2C3AngularApp.Address;
+
         userInfo.setFirstName(this.firstName);
         userInfo.setLastName(this.lastName);
         address.setStreet(this.street);
@@ -40,7 +39,8 @@ angular.module('t2C3AngularApp')
         userInfo.setAddress(address);
         userInfo.setEmailAddress(this.emailAddress);
         // Pass userInfo object to orderService
-        customerResource.save(customer, function success() {
+        customerResource.save(customer, function success(response) {
+          console.log(response);
         });
 
 
