@@ -18,7 +18,7 @@ angular.module('t2C3AngularApp')
       let editModeOrderId = null;
 
       $scope.cancelOrder = function (order) {
-        orderResource.delete(order.id);
+        orderResource.delete({id:order.id});
       };
       $scope.editAddress = function (order) {
         editModeOrderId = order.id;
@@ -26,7 +26,7 @@ angular.module('t2C3AngularApp')
 
       $scope.saveAddress = function (order) {
         editModeOrderId = null;
-        customerOrderResource.save(order);
+        orderResource.update({id:order.id},order);
       };
 
       $scope.isEditMode = function (order) {

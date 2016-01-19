@@ -22,7 +22,7 @@ module t2C3AngularApp {
     public login(responsedata) {
       this._customer = responsedata.customer;
       this._securityToken = new t2C3AngularApp.Token;
-
+      this._customer.username = responsedata.username;
       this._securityToken.setValue(responsedata.value);
 
       console.log(this._customer);

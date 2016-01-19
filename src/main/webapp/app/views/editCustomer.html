@@ -1,14 +1,24 @@
-<div ng:controller="EditCustomerCtrl">
+
   <h4>Klant Wijzig Formulier</h4>
   <br>
-  <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/accountPassword">Wijzig password</a></li>
+  <li><input type="button" class="button" ng-click="editPassword()" value="change password"/></li>
+  <li>
+    <form name="editCustomerForm" ng-submit="updateCustomer()">
+      <div class="input-group">
+        <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
+        <br>
+        <input type="text" name="lastName" class="form-control" placeholder="Achternaam" required ng-model="lastName">
+        <br>
+        <input type="text" name="email" class="form-control" placeholder="Email" ng-model="emailAddress">
+        <br>
+        <input type="text" name="street" class="form-control" placeholder="Straatnaam" ng-model="street">
+        <input type="text" name="streetNumber" class="form-control" placeholder="Straatnummer" ng-model="streetNumber">
+        <br>
+        <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
+        <br>
+        <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
+        <br>
+        <input type="submit" id="submit" value="Update!" />
+      </div>
+    </form>
 
-  <form name="editCustomerForm" ng-submit="updateCustomer()" ng-controller="EditCustomerCtrl">
-    <div class="input-group">
-      {{ username }}   <br>
-      <input type="text" name="newPassword" class="form-control" placeholder="Nieuw Wachtwoord" required ng-model="newPassword">
-      <br>
-      <input type="submit" id="submit" value="Wijzig Wachtwoord" />
-    </div>
-  </form>
-</div>

@@ -24,7 +24,6 @@ angular.module('t2C3AngularApp')
         $scope.lastName = customer.lastName;
         $scope.emailAddress = customer.emailAddress;
         if (address) {
-          console.log("test");
           $scope.street = address.street;
           $scope.streetNumber = address.streetNumber;
           $scope.city = address.city;

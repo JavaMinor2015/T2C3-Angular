@@ -6,18 +6,16 @@
 /// <reference path="../pojos/address.ts"/>
 
 angular.module('t2C3AngularApp')
-  .controller('EditCustomerCtrl', ['$scope', 'UserService', 'customerResource'
-    , function ($scope, userService, customerResource) {
+  .controller('EditPasswordCtrl', ['$scope', 'userService','customerCredentialResource',
+    function ($scope, userService,customerCredentialResource) {
 
       let customer : t2C3AngularApp.Customer;
       customer = userService.getCustomer();
-
+      $scope.username = customer.username;
 
 
       $scope.updatePassword = function () {
-        // Unfortunately no direct binding and have type safety in angular 1.x + typescript
-        // without rewriting this as a typescript controller with all troubles it comes with.
-
+        customerCredentialResource.update({id: customer.id},{username:customer.username,password:$scope.newPassword});
         console.log("updatePassword");
         };
 

@@ -4,6 +4,7 @@
 module t2C3AngularApp {
   export class Customer {
     public id : number;
+    public username : string;
     public address : t2C3AngularApp.Address;
     public firstName : string;
     public lastName : string;
