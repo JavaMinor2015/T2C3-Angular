@@ -2,8 +2,10 @@
   <h4>Order form</h4>
   <br>
 
-  <form name="orderForm">
-    <div class="input-group">
+  <form name="orderForm" ng-submit="placeOrder()">
+
+    <div class="input-group" >
+
       <input type="text" name="firstName" class="form-control" placeholder="Firstname" ng-model="firstName"
              required ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
       <div class="invalidWarning" ng-show="orderForm.firstName.$invalid && orderForm.firstName.$touched">Too short</div>
@@ -29,9 +31,9 @@
              required ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
       <div class="invalidWarning" ng-show="orderForm.zipcode.$invalid && orderForm.zipcode.$touched">Invalid zipcode!</div>
     </div>
-    <div ng-show="orderForm.$error.required">Required fields not filled in yet.</div>
     <br>
-    <button name="orderButton" ng-disabled="orderForm.$invalid"  type="button" class="btn btn-default" ng-click="placeOrder()">Place order</button>
+    <div ng-show="orderForm.$error.required">Required fields not filled in yet.</div>
+    <input ng-disabled="orderForm.$invalid" type="submit" id="submit" value="Plaats Order!" />
   </form>
   <br>
 </div>

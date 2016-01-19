@@ -9,8 +9,11 @@
  */
 module t2C3AngularApp {
   export class Order {
+    public id : string;
     public items : Array<any>;
-    private customerData : UserInfo;
+    public customerData : UserInfo;
+    public status : string;
+    public totalPrice : number;
     private token : Token;
 
 

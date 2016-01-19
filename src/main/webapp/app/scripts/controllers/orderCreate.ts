@@ -25,13 +25,14 @@ angular.module('t2C3AngularApp')
         $scope.lastName = customer.getLastName();
         $scope.emailAddress = customer.getEmail();
         if (address) {
-          $scope.straatnaam = address.street;
-          $scope.straatnummer = address.streetNumber;
+          $scope.street = address.street;
+          $scope.streetNumber = address.streetNumber;
           $scope.city = address.city;
           $scope.zipcode = address.zipcode;
         }
-
       }
+
+
       $scope.placeOrder = function () {
         console.log('clicked order');
 

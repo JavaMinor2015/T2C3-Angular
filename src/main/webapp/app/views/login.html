@@ -2,7 +2,7 @@
   <h4>Login Form</h4>
   <br>
 
-  <form name="loginForm">
+  <form name="loginForm" ng-submit="loginCustomer()">
     <input type="text" name="username" class="form-control" placeholder="Username" ng-model="username"
            required ng-minlength="2">
     <div class="invalidWarning" ng-show="loginForm.username.$invalid && loginForm.username.$touched">Too short</div>
@@ -11,10 +11,9 @@
     <input type="password" name="password" class="form-control" placeholder="Password"
            required ng-model="password">
     <br>
-
     <div ng-show="loginForm.$error.required">Required fields not filled in yet.</div>
     <div class="invalidWarning">{{errorResonseText}}</div>
-    <button ng-disabled="loginForm.$invalid" type="button" class="btn btn-default" ng-click="loginCustomer()">Login!</button>
+    <input type="submit" id="submit" value="Login!" ng-disabled="loginForm.$invalid" type="button" class="btn btn-default" ng-click="loginCustomer()"/>
   </form>
   <br>
 </div>

@@ -2,7 +2,7 @@
   <h4>Register Form</h4>
   <br>
 
-  <form name="registerForm">
+  <form name="registerForm" ng-submit="registerCustomer()">
     <div class="input-group">
       <input type="text" name="username" class="form-control" placeholder="Username" ng-model="username"
              required ng-minlength="2">
@@ -35,11 +35,10 @@
       <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model="zipcode"
               ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
       <div class="invalidWarning" ng-show="registerForm.zipcode.$invalid && registerForm.zipcode.$touched">Invalid zipcode!</div>
-
     </div>
     <div ng-show="registerForm.$error.required">Required fields not filled in yet.</div>
     <div class="invalidWarning">{{errorResonseText}}</div>
-    <button ng-disabled="registerForm.$invalid" type="button" class="btn btn-default" ng-click="registerCustomer()">Register!</button>
+    <input type="submit" ng-disabled="registerForm.$invalid" class="btn btn-default" id="submit" value="Registreer!" />
   </form>
   <br>
 </div>
