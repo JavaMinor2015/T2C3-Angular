@@ -2,7 +2,7 @@
 /// <reference path="../pojos/order.ts"/>
 /// <reference path="../pojos/userInfo.ts"/>
 /// <reference path="../pojos/customer.ts"/>
-/// <reference path="../pojos/credentials.ts"/>
+
 /// <reference path="../pojos/address.ts"/>
 
 angular.module('t2C3AngularApp')
@@ -26,16 +26,12 @@ angular.module('t2C3AngularApp')
 
 
       $scope.updateCustomer = function () {
-
-
         // Unfortunately no direct binding and have type safety in angular 1.x + typescript
         // without rewriting this as a typescript controller with all troubles it comes with.
         let userInfo : t2C3AngularApp.UserInfo = new t2C3AngularApp.UserInfo();
         let address : t2C3AngularApp.Address = new t2C3AngularApp.Address;
-        let credentials: t2C3AngularApp.Credentials = new t2C3AngularApp.Credentials;
         userInfo.setFirstName(this.firstName);
         userInfo.setLastName(this.lastName);
-        credentials.setPassword(this.password);
         address.setStreet(this.street);
         address.setStreetNumber(this.streetNumber);
         address.setCity(this.city);
@@ -43,11 +39,8 @@ angular.module('t2C3AngularApp')
         //console.log(this.address);
         userInfo.setAddress(address);
         userInfo.setEmailAddress(this.emailAddress);
-
         // Pass userInfo object to orderService
-
         customerResource.save(customer, function success() {
-
         });
 
 
