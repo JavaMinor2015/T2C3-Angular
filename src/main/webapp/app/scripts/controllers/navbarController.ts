@@ -5,5 +5,5 @@ angular.module('t2C3AngularApp')
     , function ($scope, $location) {
       $scope.isActive = function(viewLocation){
         return viewLocation === $location.path();
-      }
+      };
     }]);
