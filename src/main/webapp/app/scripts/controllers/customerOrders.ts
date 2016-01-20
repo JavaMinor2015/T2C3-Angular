@@ -16,7 +16,12 @@ angular.module('t2C3AngularApp')
         let editModeOrderId = null;
 
         $scope.cancelOrder = function (order) {
-          orderResource.delete({id: order.id});
+          orderResource.delete({id: order.id}
+            , function onSuccess() {
+            }, function onError(response) {
+              console.log('FAILED to cancel order, respones:');
+              console.log(response);
+            });
         };
         $scope.editAddress = function (order) {
           editModeOrderId = order.id;
@@ -30,5 +35,4 @@ angular.module('t2C3AngularApp')
         $scope.isEditMode = function (order) {
           return order.id === editModeOrderId;
         };
-
       }]);
