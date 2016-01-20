@@ -22,7 +22,7 @@ angular.module('t2C3AngularApp')
           function (response) {
             console.log("Login error (" + response.status + ") response:");
             console.log(response);
-            $scope.errorResonseText = response.data.message; // Sets / shows error response text to user
+            $scope.errorResponseText = response.data.message; // Sets / shows error response text to user
           }
         );
       };

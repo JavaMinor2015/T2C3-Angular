@@ -60,7 +60,7 @@ angular.module('t2C3AngularApp')
           $location.path('/thanksOrder');
         }, function error(response) {
           console.log('Place order exception error!');
-          $scope.errorResonseText = response.data.message;
+          $scope.errorResponseText = response.data.message;
         });
       };
     }]);
