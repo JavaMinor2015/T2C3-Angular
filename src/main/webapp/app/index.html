@@ -40,25 +40,25 @@
 
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#/">Home</a></li>
-          <li><a ng-href="#/catalog">Catalog</a></li>
+        <ul class="nav navbar-nav" ng-controller="navbarCtrl">
+          <li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
+          <li ng-class="{ active: isActive('/catalog')}"><a ng-href="#/catalog">Catalog</a></li>
           <div class="nav navbar-nav navbar-right" ng-controller="ShoppingCartCtrl">
-            <li><a ng-href="#/shoppingCart" class="glyphicon glyphicon-shopping-cart"> {{countCart()}}</a>
+            <li ng-class="{ active: isActive('/shoppingCart')}"><a ng-href="#/shoppingCart" class="glyphicon glyphicon-shopping-cart"> {{countCart()}}</a>
             </li>
           </div>
-          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/register">Register</a></li>
-          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
+          <li ng-class="{ active: isActive('/register')}"><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/register">Register</a></li>
+          <li ng-class="{ active: isActive('/login')}"><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
           <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
-          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/myorders">Bestellingen</a></li>
-          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/account">Mijn Gegevens</a></li>
+          <li ng-class="{ active: isActive('/myorders')}"> <a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/myorders">Bestellingen</a></li>
+          <li ng-class="{ active: isActive('/account')}"><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/account">Mijn Gegevens</a></li>
      </ul>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" >
   <div ng-view=""></div>
 </div>
 
@@ -113,6 +113,7 @@
 <script src="scripts/controllers/customerOrders.js"></script>
 <script src="scripts/controllers/editCustomer.js"></script>
 <script src="scripts/controllers/editPassword.js"></script>
+<script src="scripts/controllers/navbarController.js"></script>
 <script src="scripts/resources/catalogResource.js"></script>
 <script src="scripts/resources/orderResource.js"></script>
 <script src="scripts/resources/customerOrderResource.js"></script>
