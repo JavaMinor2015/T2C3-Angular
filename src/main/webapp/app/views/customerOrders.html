@@ -29,8 +29,8 @@
     <td>{{ order.totalPrice}}</td>
     <td>
       <button ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
-      <button ng-hide="isEditMode(order)" class="btn" ng-click="editAddress(order)">Edit OrderAddress</button>
-      <button ng-hide="isEditMode(order)" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
+      <button ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn" ng-click="editAddress(order)">Edit OrderAddress</button>
+      <button ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
     </td>
     </form>
   </tr>
