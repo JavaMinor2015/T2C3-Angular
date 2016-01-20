@@ -56,12 +56,11 @@ angular.module('t2C3AngularApp')
         orderService.orderrequest.token = userService.getSecurityToken();
         orderResource.save(orderService.orderrequest, function success(response) {
           shoppingCartService.clearCart();
+          // Navigate to thank you page
+          $location.path('/thanksOrder');
         }, function error(response) {
           console.log('Place order exception error!');
-          $scope.errorResonseText = response.data.message;
+          $scope.errorResponseText = response.data.message;
         });
-
-        // Navigate to thank you page
-        $location.path('/thanksOrder');
       };
     }]);

@@ -25,13 +25,13 @@ angular.module('t2C3AngularApp')
         customer.setCredentials(credentials);
         //register user
         $http.post('http://localhost:6789/register', customer).then(function successCallback(response) {
-            $scope.errorResonseText = ""; // Clear error response on success
+            $scope.errorResponseText = ""; // Clear error response on success
             $location.path('/login');
           },
           function errorCallback(response) {
             console.log("Registration error response:");
             console.log(response);
-            $scope.errorResonseText = response.data.message; // Sets / shows error response text to user
+            $scope.errorResponseText = response.data.message; // Sets / shows error response text to user
           }
         );
       };
