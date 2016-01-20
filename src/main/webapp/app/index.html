@@ -48,11 +48,11 @@
             </li>
           </div>
           <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/register">Register</a></li>
-          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
-          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
           <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/myorders">Bestellingen</a></li>
           <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/account">Mijn Gegevens</a></li>
-     </ul>
+          <li><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
+          <li><a href ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
+        </ul>
       </div>
     </div>
   </div>
