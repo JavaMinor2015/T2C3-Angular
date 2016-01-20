@@ -46,8 +46,8 @@ module t2C3AngularApp {
         if (data.address.street) {
           address.setStreet(data.address.street);
         }
-        if (data.address.streetnumber) {
-          address.setStreetNumber(data.address.streetnumber);
+        if (data.address.streetNumber) {
+          address.setStreetNumber(data.address.streetNumber);
         }
         if (data.address.zipcode) {
           address.setZipcode(data.address.zipcode);
