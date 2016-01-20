@@ -16,7 +16,7 @@ form input.ng-invalid-required:empty {
 }
 
 /* Disabled elements in forms */
-form :disabled {
+form :disabled, button:disabled {
   background-color: #595959;
   color: #bfbfbf;
 }
