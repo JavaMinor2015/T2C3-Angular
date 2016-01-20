@@ -11,15 +11,30 @@
 angular.module('t2C3AngularApp')
   .controller('ShoppingCartCtrl', ['$scope', 'shoppingCartService', 'orderService', '$location'
     , function ($scope, shoppingCartService, orderService, $location) {
-
       $scope.shoppingCart = shoppingCartService.getCart();
       $scope.removeItem = function (index) {
         shoppingCartService.removeItem(index);
       };
+
+      // Disables input if value is less than 1
+      $scope.amountInputChanged = function (amount) {
+        let button : HTMLInputElement = <HTMLInputElement> document.getElementById("order");
+        if (typeof amount !== 'undefined') {
+          if (amount < 1) {
+            //amount = 1;
+            button.disabled = true;
+          } else {
+            button.disabled = false;
+          }
+        } else {
+          //amount = 1;
+          button.disabled = true;
+        }
+      };
+
       $scope.countCart = function () {
         return shoppingCartService.getCart().length;
       };
-
 
       $scope.total = function () {
         let total = 0;

@@ -2,26 +2,27 @@
 <div ng-controller="ShoppingCartCtrl">
   <table class="table">
     <tr>
-
       <th>Description</th>
       <th>Cost</th>
       <th>Amount</th>
       <th>Subtotal</th>
       <th></th>
     </tr>
+    <form name="cartForm">
     <tr ng-repeat="item in shoppingCart">
       <td>{{item.product.name}}</td>
       <td>{{item.product.price | currency:"&euro;"}}</td>
-      <td><input type="number" ng-model="item.amount" ng-required class="input-mini" value="1"></td>
+      <td><input required min="1" type="number" ng-change="amountInputChanged(item.amount)" ng-model="item.amount" ng-required class="input-mini"></td>
       <td>{{item.amount * item.product.price | currency:"&euro;"}}</td>
       <td>
         [<a href ng-click="removeItem($index)">X</a>]
       </td>
     </tr>
+    </form>
   </table>
   <p name="totalprice" align="right">Total: {{total() | currency:"&euro;"}}</p>
 
   <p align="right">
-    <button name="orderButton" class="btn btn-default" ng-click="placeOrder()">Order</button>
+    <button id="order" class="btn btn-default" name="orderButton" ng-disabled="countCart() === 0 || cartForm.$invalid" ng-click="placeOrder()">Order</button>
   </p>
 </div>
