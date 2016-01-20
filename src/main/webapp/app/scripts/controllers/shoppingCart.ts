@@ -18,7 +18,7 @@ angular.module('t2C3AngularApp')
 
       // Disables input if value is less than 1
       $scope.amountInputChanged = function (amount) {
-        var button = document.getElementById("order");
+        let button : HTMLInputElement = <HTMLInputElement> document.getElementById("order");
         if (typeof amount !== 'undefined') {
           if (amount < 1) {
             //amount = 1;
