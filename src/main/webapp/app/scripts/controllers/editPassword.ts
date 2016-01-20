@@ -15,9 +15,17 @@ angular.module('t2C3AngularApp')
 
 
       $scope.updatePassword = function () {
+        $scope.resultText = '';
+        $scope.errorResponseText = '';
         customerCredentialResource.update({id: customer.id}, {
           username: customer.username,
           password: $scope.newPassword
+        }, function onSuccess(response){
+          $scope.resultText = 'Password updated.';
+          console.log(response);
+        }, function onError(response){
+          $scope.errorResponseText = 'Failed to change password.';
+          console.log(response);
         });
         console.log("updatePassword");
       };
