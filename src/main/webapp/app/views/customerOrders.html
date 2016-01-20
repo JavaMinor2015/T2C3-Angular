@@ -26,7 +26,7 @@
         {{ order.customerData.address.zipcode }}, {{ order.customerData.address.city }}
       </div>
     </td>
-    <td>{{ order.totalPrice}}</td>
+    <td>{{ order.totalPrice | currency:"&euro;"}}</td>
     <td>
       <button ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
       <button ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn" ng-click="editAddress(order)">Edit OrderAddress</button>
