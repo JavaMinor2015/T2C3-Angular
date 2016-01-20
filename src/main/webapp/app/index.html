@@ -49,10 +49,10 @@
           </div>
           <li ng-class="{ active: isActive('/register')}"><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/register">Register</a></li>
           <li ng-class="{ active: isActive('/login')}"><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/login">Login</a></li>
-          <li><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
           <li ng-class="{ active: isActive('/myorders')}"> <a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/myorders">Bestellingen</a></li>
           <li ng-class="{ active: isActive('/account')}"><a ng-show="loggedIn()"  ng-controller="LoginCtrl" ng-href="#/account">Mijn Gegevens</a></li>
-     </ul>
+          <li><a href ng-show="loggedIn()" ng-controller="LoginCtrl" ng-click="logOut()">Sign out</a></li>
+        </ul>
       </div>
     </div>
   </div>
