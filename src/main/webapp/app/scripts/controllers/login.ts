@@ -19,7 +19,7 @@ angular.module('t2C3AngularApp')
             $http.defaults.headers.common[tokenValueKey] = response.data.value;
             $location.path('/');
           },
-          function (response) {
+          function errorCallback(response) {
             console.log("Login error (" + response.status + ") response:");
             console.log(response);
             $scope.errorResponseText = response.data.message; // Sets / shows error response text to user
