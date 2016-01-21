@@ -14,6 +14,7 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/validation.css">
+  <link rel="stylesheet" href="styles/cart.css">
   <!-- endbuild -->
 </head>
 <body ng-app="t2C3AngularApp">
@@ -44,7 +45,7 @@
           <li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
           <li ng-class="{ active: isActive('/catalog')}"><a ng-href="#/catalog">Catalog</a></li>
           <div class="nav navbar-nav navbar-right" ng-controller="ShoppingCartCtrl">
-            <li ng-class="{ active: isActive('/shoppingCart')}"><a ng-href="#/shoppingCart" class="glyphicon glyphicon-shopping-cart"> {{countCart()}}</a>
+            <li id="shoppingCartIcon" ng-class="{ active: isActive('/shoppingCart', myvar)}"><a ng-href="#/shoppingCart" class="glyphicon glyphicon-shopping-cart"> {{countCart()}}</a>
             </li>
           </div>
           <li ng-class="{ active: isActive('/register')}"><a ng-hide="loggedIn()" ng-controller="LoginCtrl" ng-href="#/register">Register</a></li>
