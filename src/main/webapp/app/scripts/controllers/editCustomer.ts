@@ -12,15 +12,15 @@ angular.module('t2C3AngularApp')
       let customer : t2C3AngularApp.Customer;
       customer = userService.getCustomer();
       let address : t2C3AngularApp.Address;
-      address = customer.address;
-      $scope.firstName = customer.firstName;
-      $scope.lastName = customer.lastName;
-      $scope.emailAddress = customer.emailAddress;
+      address = customer.getAddress();
+      $scope.firstName = customer.getFirstName();
+      $scope.lastName = customer.getLastName();
+      $scope.emailAddress = customer.getEmail();
       if (address) {
-        $scope.street = address.street;
-        $scope.streetNumber = address.streetNumber;
-        $scope.city = address.city;
-        $scope.zipcode = address.zipcode;
+        $scope.street = address.getStreet();
+        $scope.streetNumber = address.getStreetNumber();
+        $scope.city = address.getCity();
+        $scope.zipcode = address.getZipcode();
       } else {
         address = new t2C3AngularApp.Address();
       }
@@ -41,7 +41,14 @@ angular.module('t2C3AngularApp')
         customer.address = address;
         customer.emailAddress = this.emailAddress;
         // Pass userInfo object to orderService
-        customerResource.update({id: customer.id}, customer);
+        $scope.resultText = "";
+        $scope.errorResponseText = "";
+        customerResource.update({id: customer.id}, customer, function onSuccess(result){
+          $scope.resultText = 'User settings updated.';
+        }, function onError(result){
+          console.log('edit failed');
+          $scope.errorResponseText = 'Failed to save user changes, try again.';
+        });
       };
       $scope.editPassword = function () {
         $location.path('/password');

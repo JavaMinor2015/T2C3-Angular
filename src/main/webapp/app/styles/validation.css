@@ -25,3 +25,8 @@ form :disabled, button:disabled {
 .invalidWarning {
   color: red;
 }
+
+/* Text for a succesfull result. */
+.successText {
+  color: green;
+}
