@@ -2,8 +2,8 @@
 
 import * as mime from "mime";
 
-var str: string;
-var obj: Object;
+var str : string;
+var obj : Object;
 
 str = mime.lookup(str);
 str = mime.extension(str);

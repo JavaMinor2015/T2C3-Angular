@@ -1,14 +1,19 @@
-<div ng:controller="RegisterCtrl">
+<div ng:controller="LoginCtrl">
   <h4>Login Form</h4>
   <br>
 
-  <form name="loginForm">
-    <label>username</label>
-    <input type="text" name="username" required ng-model="username">
+  <form name="loginForm" ng-submit="loginCustomer()">
+    <input type="text" name="username" class="form-control" placeholder="Username" ng-model="username"
+           required ng-minlength="2">
+    <div class="invalidWarning" ng-show="loginForm.username.$invalid && loginForm.username.$touched">Too short</div>
     <br>
-    <label>password</label>
-    <input type="password" name="password" required ng-model="password">
+
+    <input type="password" name="password" class="form-control" placeholder="Password"
+           required ng-model="password">
     <br>
-    <button type="button" ng-click="loginCustomer()">Login!</button>
+    <div ng-show="loginForm.$error.required">Required fields not filled in yet.</div>
+    <div class="invalidWarning">{{errorResponseText}}</div>
+    <input type="submit" id="submit" value="Login!" ng-disabled="loginForm.$invalid" class="btn btn-default"/>
   </form>
+  <br>
 </div>

@@ -13,24 +13,24 @@
  * Controller of the t2C3AngularApp
  */
 angular.module('t2C3AngularApp')
-  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'UserService', 'shoppingCartService'
+  .controller('OrderCtrl', ['$scope', 'orderService', '$location', 'orderResource', 'userService', 'shoppingCartService'
     , function ($scope, orderService, $location, orderResource, userService, shoppingCartService) {
       if (userService.isLoggedIn()) {
         let customer : t2C3AngularApp.Customer;
         customer = userService.getCustomer();
         let address : t2C3AngularApp.Address;
-        address = customer.address;
-        $scope.firstName = customer.firstName;
-        $scope.lastName = customer.lastName;
-        $scope.emailAddress = customer.email;
+        address = customer.getAddress();
+        $scope.firstName = customer.getFirstName();
+        $scope.lastName = customer.getLastName();
+        $scope.emailAddress = customer.getEmail();
         if (address) {
-          $scope.straatnaam = address.street;
-          $scope.straatnummer = address.streetNumber;
-          $scope.city = address.city;
-          $scope.zipcode = address.zipcode;
+          $scope.street = address.getStreet();
+          $scope.streetNumber = address.getStreetNumber();
+          $scope.city = address.getCity();
+          $scope.zipcode = address.getZipcode();
         }
-
       }
+
       $scope.placeOrder = function () {
         console.log('clicked order');
 
@@ -54,11 +54,13 @@ angular.module('t2C3AngularApp')
         orderService.placeOrder(userInfo);
         orderService.orderrequest.order = orderService.order;
         orderService.orderrequest.token = userService.getSecurityToken();
-        orderResource.save(orderService.orderrequest, function success() {
+        orderResource.save(orderService.orderrequest, function success(response) {
           shoppingCartService.clearCart();
+          // Navigate to thank you page
+          $location.path('/thanksOrder');
+        }, function error(response) {
+          console.log('Place order exception error!');
+          $scope.errorResponseText = response.data.message;
         });
-
-        // Navigate to thank you page
-        $location.path('/thanksOrder');
       };
     }]);

@@ -1,12 +1,23 @@
 /// <reference path="../pojos/credentials.ts" />
 /// <reference path="../pojos/address.ts" />
+'use strict';
 module t2C3AngularApp {
   export class Customer {
+    public id : number;
+    public username : string;
     public address : t2C3AngularApp.Address;
     public firstName : string;
     public lastName : string;
-    public email: string;
-    private credentials : t2C3AngularApp.Credentials;
+    public emailAddress : string;
+    public credentials : t2C3AngularApp.Credentials;
+
+    public setId(value : number) {
+      this.id = value;
+    }
+
+    public setEmail(value : string) {
+      this.emailAddress = value;
+    }
 
     public getAddress() : t2C3AngularApp.Address {
       return this.address;
@@ -30,6 +41,14 @@ module t2C3AngularApp {
 
     public setLastName(value : string) {
       this.lastName = value;
+    }
+
+    public getEmail() : string {
+      return this.emailAddress;
+    }
+
+    public setEmailAddress(value : string) {
+      this.emailAddress = value;
     }
 
     public getCredentials() : t2C3AngularApp.Credentials {

@@ -1,21 +1,14 @@
 <table ng-controller="CatalogCtrl" class="table">
   <th>Name</th>
   <th>Category</th>
-  <th>Supplier</th>
-  <th>Available</th>
-  <th>Image</th>
   <th>Price</th>
   <th></th>
-  <tr ng-repeat="x in products">
-    <td>{{ x.name }}</td>
-    <td>{{ x.category }}</td>
-    <td>{{ x.supplier }}</td>
-    <!--Need to implement boolean yesOrNo filter-->
-    <td>{{ x.available }}</td>
-    <td>{{ x.imageURL }}</td>
-    <td>{{ x.price | currency:"&euro;"}}</td>
+  <tr ng-repeat="product in products">
+    <td>{{ product.name }}</td>
+    <td>{{ product.category }}</td>
+    <td>{{ product.price | currency:"&euro;"}}</td>
     <td>
-      <button class="btn" ng-click="addToCart(x)">Add</button>
+      <button class="btn" ng-click="addToCart(product)">Add</button>
     </td>
   </tr>
 </table>

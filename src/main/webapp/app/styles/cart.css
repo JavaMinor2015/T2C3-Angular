@@ -1,0 +1,10 @@
+.addedToCart {
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+/* Standard syntax */
+@keyframes example {
+  from {background-color: white;}
+  to {background-color: yellow;}
+}
