@@ -41,5 +41,6 @@ angular.module('t2C3AngularApp')
         let tokenValueKey = 'tokenValue';
         $http.defaults.headers.common[tokenValueKey] = null;
         userService.logout();
+        $location.path('/matthijsSucked');
       };
     }]);
