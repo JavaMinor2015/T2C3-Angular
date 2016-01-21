@@ -17,7 +17,10 @@ angular.module('t2C3AngularApp')
 
         $scope.cancelOrder = function (order) {
           orderResource.delete({id: order.id}
-            , null, function onError(response) {
+            , function onSuccess() {
+              order.status = "CANCELED";
+            }
+            , function onError(response) {
               console.log('FAILED to cancel order, respones:');
               console.log(response);
             });
