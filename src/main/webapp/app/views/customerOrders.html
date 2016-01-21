@@ -55,6 +55,7 @@
       <button ng-disabled="orderForm.$invalid" ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
       <div class="invalidWarning">{{errorResponseText}}</div>
       <button ng-hide="isEditMode(order) || order.status == 'CANCELED' || order.status == 'REJECTED'|| order.status == 'SENT'" class="btn btn-default" ng-click="editAddress(order)">Edit OrderAddress</button>
+      <br><br>
       <button ng-hide="isEditMode(order) || order.status == 'CANCELED' || order.status == 'REJECTED'|| order.status == 'SENT'" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
     </td>
   </tr>
