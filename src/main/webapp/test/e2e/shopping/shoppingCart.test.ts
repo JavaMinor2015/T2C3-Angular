@@ -3,14 +3,17 @@
 /// <reference path="../common.ts" />
 // cannot use inject or angular in here.
 
+
 /**
  *  Tests the shopping proces of the user in the front end.
  */
 describe('adding items to cart', function () {
   // The correct configuration that needs to resemble the actual page texts / links.
   //  Also keep the classes up to date in the bottom wich gets repeaters and such.
-  var shoppingCartPageLabel = "Shopping cart";
+  var homeURL = browser.baseUrl + '#/';
+  var catalogNavID = "navCatalog";
   var catalogURL = browser.baseUrl + '#/catalog';
+  var loginURL = browser.baseUrl + '#/login';
   var shoppingCartURL = browser.baseUrl + '#/shoppingCart';
   var orderCreateURL = browser.baseUrl + '#/orderCreate';
   var orderThanksURL = browser.baseUrl + '#/thanksOrder';
@@ -18,16 +21,20 @@ describe('adding items to cart', function () {
 
   //browser.get("/");
 
-  it('should add products to cart and place order as guest customer', function () {
-    browser.get(catalogURL);
+  // Amount of products to add to cart
+  let addAmount = 3;
 
-    // Amount of products to add to cart
-    let addAmount = 3;
+  it('should add products to cart and place order as guest customer', function () {
+    browser.get(homeURL);
 
     // Get the cart test functions
-    var cart = new e2e.shoppingCart;
-    var common = new e2e.common;
-    var orderCreate = new e2e.orderCreate;
+    let cart = new e2e.shoppingCart;
+    let common = new e2e.common;
+    let orderCreate = new e2e.orderCreate;
+
+    // Click to navigate to Catalog
+    common.navigateTo(catalogNavID);
+
     let itemListSize = cart.getItemAmountInCatalog().then(function (amount) {
       // Expect atleast 3 items in catalog to click on
       expect(addAmount).toBeTruthy(addAmount <= amount);
@@ -37,7 +44,7 @@ describe('adding items to cart', function () {
     cart.addItemsToCart(addAmount);
 
     // Navigate to shopping cart page
-    common.navigateTo(shoppingCartPageLabel);
+    common.navigateTo("shoppingCartIcon");
 
     // URL should now be set to shoppingcart page
     expect(browser.getCurrentUrl()).toEqual(shoppingCartURL);
@@ -48,7 +55,7 @@ describe('adding items to cart', function () {
     // Get current total price
     cart.getTotalPrice().then(function (totalPrice) { // After promise has been delivered.
       // Change amount of second product to 2
-      var inputField = element(by.repeater(shoppingCartRepeater).row(1)).element(by.css('input'));
+      let inputField = element(by.repeater(shoppingCartRepeater).row(1)).element(by.css('input'));
       inputField.clear();
       inputField.sendKeys("2");
 
@@ -69,7 +76,51 @@ describe('adding items to cart', function () {
       // URL should now be set to shoppingcart page
       expect(browser.getCurrentUrl()).toEqual(orderThanksURL);
     });
-  })
+  });
+
+  it('should login, add products to cart and place order as logged in customer', function () {
+    browser.get('/');
+    browser.get(loginURL);
+
+    // Get page objects
+    let login = new e2e.login;
+    let userNameField = login.getUsernameField();
+    let passwordField = login.getPasswordField();
+    let loginButton = login.getLoginButton();
+
+    // Get more page objects for ordering
+    let cart = new e2e.shoppingCart;
+    let common = new e2e.common;
+    let orderCreate = new e2e.orderCreate;
+    let itemListSize = cart.getItemAmountInCatalog();
+
+    userNameField.sendKeys("remco");
+    passwordField.sendKeys("password");
+
+    loginButton.click();
+
+    // URL should now be set to order create page since this user is not logged in yet.
+    expect(browser.getCurrentUrl()).toEqual(homeURL);
+
+    // Goto catalog page
+    common.navigateTo('navCatalog');
+
+    // add some items to cart
+    cart.addItemsToCart(addAmount);
+
+    browser.sleep(2000);
+
+    // Navigate to shopping cart page
+    common.navigateTo('shoppingCartIcon');
+
+    // Expect correct amount of unique products in cart
+    expect(cart.getItemAmountInCart()).toEqual(addAmount);
+
+    cart.placeOrder();
+
+    // URL should now be set to order create page since this user is not logged in yet.
+    expect(browser.getCurrentUrl()).toEqual(orderCreateURL);
+  });
 });
 
 module e2e {
@@ -86,18 +137,29 @@ module e2e {
      *  Clicks to page if it was found.
      * @param pageName
      */
-    public navigateTo(pageName) {
-      let navAncorItems = element.all(by.css('#js-navbar-collapse li a'));
-      element.all(by.css('#js-navbar-collapse li a')).then(function (items) {
-        items.forEach(function (ele, i) { // loop through array
-          if (i == 2) ele.click();
-          ele.getText().then(function (text) {
-            if (text === pageName) {
-              items[i].click();
-            }
-          });
-        })
-      });
+    public navigateTo(navID) {
+      element.all(by.id(navID)).click();
+    }
+  }
+
+  export class login
+  {
+    private loginButton;
+
+      /**
+       * Returns Login button for the login form.
+       * @returns {ElementArrayFinder}
+       */
+    public getLoginButton(){
+      return element.all(by.id('submit'));
+    }
+
+    public getUsernameField(){
+      return element.all(by.css('[name=username]'));
+    }
+
+    public getPasswordField(){
+      return element.all(by.css('[name=password]'));
     }
   }
 

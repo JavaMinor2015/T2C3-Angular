@@ -1,9 +1,10 @@
 
   <h4>Klant Wijzig Formulier</h4>
   <br>
-  <li><input type="button" class="btn" ng-click="editPassword()" value="change password"/></li>
-  <li>
+  <input type="button" class="btn" ng-click="editPassword()" value="change password"/>
+  <br>
     <form name="editCustomerForm" ng-submit="updateCustomer()">
+      <br>
       <div class="input-group">
         <input type="text" name="firstName" class="form-control" placeholder="Voornaam" required ng-model="firstName">
         <br>
@@ -17,11 +18,11 @@
         <input type="text" name="city" class="form-control" placeholder="Stad" ng-model="city">
         <br>
         <input type="text" name="zipcode" class="form-control" placeholder="Postcode" ng-model="zipcode">
-        <br>
-        <input type="submit" type="button" class="btn btn-default" id="submit" value="Update!" />
       </div>
       <br>
+      <input type="submit" type="button" class="btn btn-default" id="submit" value="Update!" />
     </form>
     <div class="invalidWarning">{{errorResponseText}}</div>
     <div class="successText">{{resultText}}</div>
+  <br>
 
