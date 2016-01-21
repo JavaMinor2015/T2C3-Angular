@@ -6,8 +6,7 @@
   <th>Prijs</th>
 
   <th></th>
-  <tr ng-repeat="order in orders">
-    <form name="orderForm">
+  <tr ng-repeat="order in orders" ng-form="orderForm">
     <td>{{ order.id }}</td>
     <td>{{ order.status }}</td>
     <td>
@@ -16,30 +15,29 @@
       </li></td>
     <td>
 
-      <input ng-show="isEditMode(order)" type="text" name="firstName_{{$index}}" class="form-control" required ng-model="order.customerData.firstName"
-             ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
-      <div class="invalidWarning" ng-show="orderForm['firstName_{{$index}}'].$invalid && orderForm.firstName.$touched">Too short</div>
+      <input ng-show="isEditMode(order)" type="text" name="firstName" class="form-control" placeholder="Firstname" ng-model="order.customerData.firstName"
+             required ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
+      <div class="invalidWarning" ng-show="orderForm.firstName.$invalid && orderForm.firstName.$touched">Too short</div>
 
-      <input ng-show="isEditMode(order)" type="text" name="lastName_{{$index}}" class="form-control" required ng-model="order.customerData.lastName"
+      <input ng-show="isEditMode(order)" type="text" name="lastName" class="form-control" required ng-model="order.customerData.lastName"
              ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/">
-      <div class="invalidWarning" ng-show="orderForm['lastName_{{$index}}'].$invalid && orderForm.lastName.$touched">Too short</div>
+      <div class="invalidWarning" ng-show="orderForm.lastName.$invalid && orderForm.lastName.$touched">Too short</div>
 
-      <input ng-show="isEditMode(order)" type="text" name="street_{{$index}}" class="form-control" required ng-model="order.customerData.address.street"
+      <input ng-show="isEditMode(order)" type="text" name="street" placeholder="Street name" class="form-control" required ng-model="order.customerData.address.street"
              ng-minlenght="2" ng-pattern="/^[a-zA-Z\s]*$/">
-      <div class="invalidWarning" ng-show="orderForm['street{{$index}}'].$invalid && orderForm.street.$touched">Invalid street</div>
+      <div class="invalidWarning" ng-show="orderForm.street.$invalid && orderForm.street.$touched">Invalid street name</div>
 
-      <input ng-show="isEditMode(order)" type="text" name="streetNumber_{{$index}}" class="form-control" required ng-model="order.customerData.address.streetNumber"
+      <input ng-show="isEditMode(order)" type="text" name="streetNumber" placeholder="Street number" class="form-control" required ng-model="order.customerData.address.streetNumber"
              ng-pattern="/^[1-9]+[0-9]*\s?[a-zA-Z]?$/"> <!--Pattern allows numbers ending on an optional letter-->
-      <div class="invalidWarning" ng-show="orderForm['streetNumber_{{$index}}'].$invalid && orderForm.streetNumber.$touched">Invalid street number</div>
+      <div class="invalidWarning" ng-show="orderForm.streetNumber.$invalid && orderForm.streetNumber.$touched">Invalid street number</div>
 
-      <input ng-show="isEditMode(order)" type="text" name="city_{{$index}}" class="form-control"  required ng-model="order.customerData.address.city"
+      <input ng-show="isEditMode(order)" type="text" name="city" class="form-control" placeholder="City name"  required ng-model="order.customerData.address.city"
              ng-pattern="/^[a-zA-Z\s]*$/"> <!--Pattern allows only letters and spaces-->
-      <div class="invalidWarning" ng-show="orderForm['city_{{$index}}'].$invalid && orderForm.city.$touched">Invalid city</div>
+      <div class="invalidWarning" ng-show="orderForm.city.$invalid && orderForm.city.$touched">Invalid city</div>
 
-
-      <input ng-show="isEditMode(order)" type="text" name="zipcode_{{$index}}" class="form-control" required ng-model="order.customerData.address.zipcode"
+      <input ng-show="isEditMode(order)" type="text" name="zipcode" class="form-control" placeholder="Zipcode" required ng-model="order.customerData.address.zipcode"
              ng-pattern="/^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/"> <!--Pattern allows only valid Dutch postal codes-->
-      <div class="invalidWarning" ng-show="orderForm['zipcode_{{$index}}'].$invalid && orderForm.zipcode.$touched">Invalid zipcode!</div>
+      <div class="invalidWarning" ng-show="orderForm.$invalid && orderForm.zipcode.$touched">Invalid zipcode!</div>
       <div ng-hide="isEditMode(order)">
         {{ order.customerData.firstName }} {{ order.customerData.lastName }}<br>
         {{ order.customerData.address.street }} {{ order.customerData.address.streetNumber }}<br>
@@ -48,11 +46,10 @@
     </td>
     <td>{{ order.totalPrice | currency:"&euro;"}}</td>
     <td>
-      <button ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
+      <button ng-disabled="orderForm.$invalid" ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
       <div class="invalidWarning">{{errorResponseText}}</div>
-      <button ng-disabled="orderForm.$invalid" ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn btn-default" ng-click="editAddress(order)">Edit OrderAddress</button>
-      <button ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
+      <button ng-hide="isEditMode(order) || order.status == 'CANCELED' || order.status == 'REJECTED'|| order.status == 'SENT'" class="btn btn-default" ng-click="editAddress(order)">Edit OrderAddress</button>
+      <button ng-hide="isEditMode(order) || order.status == 'CANCELED' || order.status == 'REJECTED'|| order.status == 'SENT'" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
     </td>
-    </form>
   </tr>
 </table>
