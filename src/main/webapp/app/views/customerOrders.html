@@ -11,9 +11,15 @@
     <td>{{ order.id }}</td>
     <td>{{ order.status }}</td>
     <td>
-      <li ng-repeat="item in order.items">
-        {{item.product.name}} Amount: {{ item.amount }}
-      </li></td>
+      <table ng-controller="CustomerOrderCtrl" class="table">
+  <th>Product Name</th>
+  <th>Order Amount</th>
+      <tr ng-repeat="item in order.items">
+        <td>{{item.product.name}}</td>
+        <td>{{item.amount}}</td>
+      </tr>
+        </table>
+    </td>
     <td>    <input ng-show="isEditMode(order)" type="text" name="firstName" class="form-control"  required ng-model="order.customerData.firstName">
       <input ng-show="isEditMode(order)" type="text" name="lastName" class="form-control"  required ng-model="order.customerData.lastName">
       <input ng-show="isEditMode(order)" type="text" name="street" class="form-control"  required ng-model="order.customerData.address.street">
@@ -29,7 +35,9 @@
     <td>{{ order.totalPrice | currency:"&euro;"}}</td>
     <td>
       <button ng-show="isEditMode(order)" class="btn" ng-click="saveAddress(order)">Save OrderAddress</button>
+      <br>
       <button ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn" ng-click="editAddress(order)">Edit OrderAddress</button>
+      <br>
       <button ng-hide="isEditMode(order) || order.status == 'CANCELED'" class="btn" ng-click="cancelOrder(order)">Cancel Order</button>
     </td>
     </form>
