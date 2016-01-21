@@ -21,7 +21,7 @@ angular.module('t2C3AngularApp')
               order.status = "CANCELED";
             }
             , function onError(response) {
-              console.log('FAILED to cancel order, respones:');
+              console.log('FAILED to cancel order, response:');
               console.log(response);
             });
         };
@@ -31,7 +31,11 @@ angular.module('t2C3AngularApp')
 
         $scope.saveAddress = function (order) {
           editModeOrderId = null;
-          orderResource.update({id: order.id}, order);
+          console.log(order);
+          orderResource.update({id: order.id}, order, function onSuccess(response){
+            console.log("Address changed:");
+            console.log(response);
+          });
         };
 
         $scope.isEditMode = function (order) {

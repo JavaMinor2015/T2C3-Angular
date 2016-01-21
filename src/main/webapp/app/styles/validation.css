@@ -1,22 +1,22 @@
 /* Correct input. */
-form input.ng-dirty.ng-valid {
+input.ng-valid {
   background-color: #ccffcc;
 }
 
 /* Invalid input after touched. (altered) */
-form input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched {
   background-color: #ff8080;
   color:white;
 }
 
 /* Required input, invalid and un-altered. */
-form input.ng-invalid-required:empty {
+input.ng-invalid-required:empty {
   background-color: #ffffb3;
   color:white;
 }
 
 /* Disabled elements in forms */
-form :disabled, button:disabled {
+ input:disabled, button:disabled {
   background-color: #595959;
   color: #bfbfbf;
 }
